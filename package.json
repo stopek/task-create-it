@@ -24,6 +24,7 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
+    "start:force": "SET TSC_COMPILE_ON_ERROR=true&&react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -38,7 +39,7 @@
     ],
     "overrides": [
       {
-        "files": [],
+        "files": "",
         "rules": {
           "import/no-anonymous-default-export": "off"
         }
