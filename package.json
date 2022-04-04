@@ -21,12 +21,25 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write \"{src,public}/**/*.{tsx,ts,js,json,md,scss}\"",
+    "prettier:check": "prettier --check \"{src,public}/**/*.{tsx,ts,js,json,md,scss}\""
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "lint-staged": {
+    "*.{html,json,md,css,scss}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "tslint -p ./tsconfig.json --fix",
+      "git add"
     ]
   },
   "browserslist": {
@@ -42,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "prettier": "2.6.2",
     "tsconfig.json": "^1.0.11"
   }
 }
