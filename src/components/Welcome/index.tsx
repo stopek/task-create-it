@@ -1,14 +1,9 @@
-import styled from "styled-components";
-
-const Message = styled.div`
-  font-size: 90px;
-  font-weight: 700;
-`;
+import { Typography } from "@mui/material";
 
 const Welcome = () => (
-  <Message>
+  <Typography variant="h1">
     Hello Word!
-  </Message>
+  </Typography>
 );
 
 export default Welcome;

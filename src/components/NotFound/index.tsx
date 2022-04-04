@@ -1,23 +1,15 @@
+import { Box, Typography } from "@mui/material";
 import styled from "styled-components";
 
-const Content = styled.div`
+const Content = styled(Box)`
   max-width: 500px;
   width: 100%;
 `;
 
-const Error = styled.strong`
-  font-size: 50px;
-  display: block;
-`;
-
-const Message = styled.span`
-  font-size: 20px;
-`;
-
 const NotFound = () => (
   <Content>
-    <Error>UPS, 404</Error>
-    <Message>PurPur couldn't find this page :(</Message>
+    <Typography variant="h1">UPS, 404</Typography>
+    <Typography variant="subtitle1">PurPur couldn't find this page...</Typography>
   </Content>
 );
 
