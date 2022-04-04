@@ -40,13 +40,18 @@
         "groups": [
           {
             "name": "external",
-            "match": "^(?!(components|..?)\\/.*$).*",
+            "match": "^(?!(components|ui|..?)\\/.*$).*",
             "order": 1
           },
           {
             "name": "components",
             "match": "^components/",
             "order": 10
+          },
+          {
+            "name": "ui",
+            "match": "^ui/",
+            "order": 20
           },
           {
             "name": "local",
