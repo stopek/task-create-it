@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material";
-import { deepPurple } from "@mui/material/colors";
+import { green } from "@mui/material/colors";
 
 import { primaryFont, secondaryFont } from "./configs";
 
@@ -10,7 +10,7 @@ const theme = createTheme({
       default: "#0c0c0c",
     },
     primary: {
-      main: deepPurple[500],
+      main: green[700],
     },
     text: {
       primary: "#e7e7e7",
@@ -27,6 +27,13 @@ const theme = createTheme({
     },
     subtitle1: {
       fontSize: "1.3rem",
+    },
+  },
+  components: {
+    MuiGrid: {
+      defaultProps: {
+        padding: 0,
+      },
     },
   },
 });
