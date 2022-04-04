@@ -4,9 +4,9 @@
       "react/next",
       "react-dom/next"
     ],
-    "target": "es5",
+    "target": "es6",
     "lib": [
-      "es2020",
+      "es6",
       "dom",
       "dom.iterable",
       "esnext"

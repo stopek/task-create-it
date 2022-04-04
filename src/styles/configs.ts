@@ -1,2 +1,2 @@
-export const primaryFont = "Roboto, sans-serif";
-export const secondaryFont = "Roboto, sans-serif";
+export const primaryFont = "'PT Sans', sans-serif";
+export const secondaryFont = "'Quicksand', sans-serif";

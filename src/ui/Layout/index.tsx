@@ -2,9 +2,6 @@ import { ReactNode } from "react";
 import styled, { css } from "styled-components";
 
 const Container = styled.div<{ center?: boolean }>`
-  color: white;
-  background: #181818;
-
   ${props => props.center && css`
     width: 100vw;
     height: 100vh;
