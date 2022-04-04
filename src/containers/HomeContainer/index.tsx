@@ -1,4 +1,4 @@
-import Welcome from "ui/Welcome";
+import Welcome from "components/Welcome";
 
 const HomeContainer = () => (
   <Welcome />
