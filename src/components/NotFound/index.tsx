@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import Layout from "ui/Layout";
-
 const Content = styled.div`
   max-width: 500px;
   width: 100%;
@@ -17,12 +15,10 @@ const Message = styled.span`
 `;
 
 const NotFound = () => (
-  <Layout center>
-    <Content>
-      <Error>UPS, 404</Error>
-      <Message>PurPur couldn't find this page :(</Message>
-    </Content>
-  </Layout>
+  <Content>
+    <Error>UPS, 404</Error>
+    <Message>PurPur couldn't find this page :(</Message>
+  </Content>
 );
 
 export default NotFound;
