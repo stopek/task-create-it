@@ -1,7 +1,11 @@
-import Welcome from "ui/Welcome";
+import Welcome from "components/Welcome";
+
+import Layout from "ui/Layout";
 
 const HomeContainer = () => (
-  <Welcome />
+  <Layout center>
+    <Welcome />
+  </Layout>
 );
 
 export default HomeContainer;
