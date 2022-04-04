@@ -1,0 +1,66 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-react-hooks"
+  ],
+  "jsRules": true,
+  "rules": {
+    "arrow-parens": false,
+    "import-blacklist": [
+      true,
+      "eworkit"
+    ],
+    "interface-name": false,
+    "jsx-alignment": false,
+    "jsx-boolean-value": false,
+    "jsx-no-lambda": false,
+    "jsx-no-multiline-js": false,
+    "jsx-wrap-multiline": false,
+    "no-empty-interface": false,
+    "member-access": false,
+    "object-literal-sort-keys": false,
+    "object-literal-key-quotes": false,
+    "semicolon": false,
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-pascal-case",
+      "allow-leading-underscore"
+    ],
+    "react-hooks-nesting": true,
+    "react-hooks-exhaustive-deps": false,
+    "no-console": false,
+    "ordered-imports": {
+      "options": {
+        "import-sources-order": "case-insensitive",
+        "grouped-imports": true,
+        "groups": [
+          {
+            "name": "external",
+            "match": "^(?!(components|ui|..?)\\/.*$).*",
+            "order": 1
+          },
+          {
+            "name": "components",
+            "match": "^components/",
+            "order": 10
+          },
+          {
+            "name": "ui",
+            "match": "^ui/",
+            "order": 20
+          },
+          {
+            "name": "local",
+            "match": "^[.](?!.*[.](css|scss|sass)$).*$",
+            "order": 1000
+          }
+        ]
+      }
+    }
+  },
+  "rulesDirectory": []
+}
