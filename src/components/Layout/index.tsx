@@ -1,11 +1,13 @@
 import { CircularProgress } from "@mui/material";
 import { ReactNode } from "react";
-import { ILoadingState, TVariableState } from "store/reducers/types";
+import { menuItems } from "routing/configs";
+import { ILoadingState } from "store/reducers/types";
 import styled, { css } from "styled-components";
-import Error from "../../ui/Error";
+
+import Error from "ui/Error";
 
 import Footer from "../Footer";
-import Header from "../Header";
+import Menu from "../Menu";
 
 const Content = styled.div<{ center?: boolean }>`
   ${props => props.center ? css`
@@ -28,7 +30,6 @@ interface ILayout extends Partial<ILoadingState> {
   center?: boolean;
   header?: boolean;
   footer?: boolean;
-  apiStatus?: (type: TVariableState) => unknown;
 }
 
 const Layout = ({ children, center, header, footer, state }: ILayout) => (state?.error || state?.crash) ? (
@@ -37,7 +38,7 @@ const Layout = ({ children, center, header, footer, state }: ILayout) => (state?
   </Content>
 ) : (
   <>
-    {header && !center && <Header />}
+    {header && !center && <Menu items={menuItems} />}
 
     {state?.loading ? (
       <Content center={true}>

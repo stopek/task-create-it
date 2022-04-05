@@ -1,6 +1,15 @@
+import { SvgIconTypeMap } from "@mui/material/SvgIcon/SvgIcon";
+import { ReactElement } from "react";
 import { RouteProps } from "react-router-dom";
 
 import { paths } from "./paths";
 
-type RoutePathsType = { path: paths | paths[] };
-export type TRouteItem = RouteProps & RoutePathsType;
+type TRoutePathsType = { path: paths | paths[] };
+export type TRouteItem = RouteProps & TRoutePathsType;
+
+export interface IMenuItem {
+  path: paths;
+  title: string;
+  icon: ReactElement<SvgIconTypeMap, any>;
+  noHome?: boolean;
+}

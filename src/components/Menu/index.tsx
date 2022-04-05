@@ -1,7 +1,5 @@
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
@@ -11,10 +9,24 @@ import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
+import { IMenuItem } from "routing/types";
+import styled from "styled-components";
+import { ClearLink } from "styles/styled";
 
+import Search from "../Search";
 import { AppBar, Drawer, DrawerHeader } from "./styled";
 
-const Header = () => {
+interface IMenu {
+  items: IMenuItem[];
+}
+
+const RightContent = styled.div`
+  justify-content: flex-end;
+  display: flex;
+  flex: 1;
+`;
+
+const Menu = ({ items }: IMenu) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const handleDrawerOpen = () => setOpen(true);
@@ -40,6 +52,10 @@ const Header = () => {
           <Typography variant="h6" noWrap component="div">
             PurPur Prime
           </Typography>
+
+          <RightContent>
+            <Search />
+          </RightContent>
         </Toolbar>
       </AppBar>
 
@@ -53,27 +69,28 @@ const Header = () => {
         <Divider />
 
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItemButton
-              key={text}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
+          {items.map((item, index) => (
+            <ClearLink key={`menu-item-${index}`} to={item.path}>
+              <ListItemButton
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
                 }}
               >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
 
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
+                <ListItemText primary={item.title} sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ClearLink>
           ))}
         </List>
       </Drawer>
@@ -81,4 +98,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Menu;
