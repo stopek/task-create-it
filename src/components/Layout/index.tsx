@@ -1,4 +1,6 @@
+import { CircularProgress } from "@mui/material";
 import { ReactNode } from "react";
+import { ILoadingState, TVariableState } from "store/reducers/types";
 import styled, { css } from "styled-components";
 
 import Footer from "../Footer";
@@ -20,20 +22,27 @@ const Content = styled.div<{ center?: boolean }>`
   `}
 `;
 
-interface ILayout {
+interface ILayout extends Partial<ILoadingState> {
   children: ReactNode;
   center?: boolean;
   header?: boolean;
   footer?: boolean;
+  apiStatus?: (type: TVariableState) => unknown;
 }
 
-const Layout = ({ children, center, header, footer }: ILayout) => (
+const Layout = ({ children, center, header, footer, state }: ILayout) => (
   <>
-    {header && !center && <Header />}
+    {(header && !center) && !state?.loading && <Header />}
 
-    <Content center={center}>
-      {children}
-    </Content>
+    {state?.loading ? (
+      <Content center={true}>
+        <CircularProgress />
+      </Content>
+    ) : (
+      <Content center={center}>
+        {children}
+      </Content>
+    )}
 
     {footer && !center && <Footer />}
   </>
