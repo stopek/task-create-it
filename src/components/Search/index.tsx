@@ -1,5 +1,6 @@
+import DisplaySettingsRoundedIcon from "@mui/icons-material/DisplaySettingsRounded";
 import SearchIcon from "@mui/icons-material/Search";
-import { TextField } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { useEffect, useState } from "react";
@@ -21,13 +22,15 @@ const StyledTextField = styled(TextField)`
 const Container = styled.div`
   display: flex;
   gap: 15px;
+  align-items: center;
 `;
 
 interface ISearch {
   expanded?: boolean;
+  withoutAdvancedIcon?: boolean;
 }
 
-const Search = ({ expanded }: ISearch) => {
+const Search = ({ expanded, withoutAdvancedIcon }: ISearch) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const fields = useAppSelector(getSearchParams);
@@ -49,12 +52,29 @@ const Search = ({ expanded }: ISearch) => {
     navigate(paths.MOVIES);
   };
 
+  const goToSearch = () => {
+    navigate(paths.SEARCH);
+  };
+
   useEffect(() => {
     setPhrase(fields.phrase);
   }, [fields.phrase]);
 
   return (
     <Container>
+      {!withoutAdvancedIcon && (
+        <Box>
+          <IconButton
+            aria-label="search"
+            color="inherit"
+            type="submit"
+            onClick={goToSearch}
+          >
+            <DisplaySettingsRoundedIcon />
+          </IconButton>
+        </Box>
+      )}
+
       {search && (
         <StyledTextField
           id="search-basic"

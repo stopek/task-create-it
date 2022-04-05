@@ -1,11 +1,11 @@
-import PlayCircleRoundedIcon from '@mui/icons-material/PlayCircleRounded';
+import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
 import { Box, Divider, Grid, Typography } from "@mui/material";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import CardMedia from "@mui/material/CardMedia";
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
 import { useState } from "react";
 import styled from "styled-components";
 import { IMovie } from "types/apple";
@@ -88,14 +88,18 @@ const StyledDialogContent = styled(DialogContent)`
 
 const MoviePreview = ({ movie }: IMoviePreview) => {
   const [open, setOpen] = useState<boolean>(false);
-
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  if (!movie) {
+    return null;
+  }
+
+  const rentalPrice = movie["im:rentalPrice"]?.label;
   return (
     <>
       <Dialog fullWidth open={open} onClose={handleClose} maxWidth="lg">
-        <DialogTitle>{movie["im:name"].label} - trailer</DialogTitle>
+        <DialogTitle>{movie["im:name"]?.label} - trailer</DialogTitle>
 
         <StyledDialogContent>
           <VideoPlayer filePath={movie.link?.[1]?.attributes?.href} />
@@ -116,9 +120,12 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
           <RightContent>
             <Price>
               {movie["im:price"].label}
-              <Rental>
-                rental price: {movie["im:rentalPrice"].label}
-              </Rental>
+
+              {!!rentalPrice && (
+                <Rental>
+                  rental price: {movie["im:rentalPrice"]?.label}
+                </Rental>
+              )}
             </Price>
           </RightContent>
         </TopContainer>
