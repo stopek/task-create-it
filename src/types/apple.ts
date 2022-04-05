@@ -40,6 +40,13 @@ export interface IMovie {
       currency: string;
     };
   };
+  "im:rentalPrice": {
+    attributes: {
+      amount: string;
+      currency: string;
+    };
+    label: string;
+  }
   "im:releaseDate": {
     attributes: {
       label: string;
@@ -57,7 +64,7 @@ export interface IMovie {
     "im:duration": {
       label: string;
     };
-  };
+  }[];
   rights: {
     label: string;
   };
