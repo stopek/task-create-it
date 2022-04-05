@@ -1,19 +1,27 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { handleRejectValues } from "routing/utils";
 import servicesApple from "services/api/apple";
 import { IMovie } from "types/apple";
 
-interface ITopMoviesState {
+import { ILoadingState } from "./types";
+import { handleRejectValues, setStateMatchers } from "./utils";
+
+interface ITopMoviesState extends ILoadingState {
   top_movies: IMovie[];
 }
 
-export const topMovies = handleRejectValues("apple/top_movies", servicesApple.getTopMovies);
+const topMovies = handleRejectValues("apple/top_movies", servicesApple.getTopMovies);
 
 const initialState: ITopMoviesState = {
   top_movies: [],
+
+  state: {
+    loading: true,
+    error: false,
+    crash: false,
+  },
 };
 
-export const appleSlice = createSlice({
+const appleSlice = createSlice({
   name: "apple",
   initialState,
   reducers: {},
@@ -22,7 +30,14 @@ export const appleSlice = createSlice({
       .addCase(topMovies.fulfilled, (state, action: PayloadAction<IMovie[]>) => {
         state.top_movies = action.payload;
       });
+
+    setStateMatchers(builder);
   },
 });
+
+export {
+  topMovies,
+  appleSlice,
+};
 
 export default appleSlice.reducer;

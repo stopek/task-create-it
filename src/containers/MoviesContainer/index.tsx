@@ -3,18 +3,19 @@ import MoviesListSimple from "components/MoviesListSimple";
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { useEffect } from "react";
 import { topMovies } from "store/reducers/apple";
-import { getTopMovies } from "store/selectors/apple";
+import { getApiStatus, getTopMovies } from "store/selectors/apple";
 
 const MoviesContainer = () => {
   const movies = useAppSelector(getTopMovies);
   const dispatch = useAppDispatch();
+  const status = useAppSelector(getApiStatus);
 
   useEffect(() => {
     dispatch<any>(topMovies());
-  }, []);
+  }, [dispatch]);
 
   return (
-    <Layout header footer>
+    <Layout state={status} header footer>
       <MoviesListSimple movies={movies} />
     </Layout>
   );
