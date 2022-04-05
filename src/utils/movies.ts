@@ -12,6 +12,9 @@ const filteredMovies = (list: IMovie[], fields: ISearchState["fields"]): IMovie[
   return localMovies;
 };
 
+const foundMovieById = (list: IMovie[], id?: string) => list.find(movie => movie.id.attributes["im:id"] === id);
+
 export {
   filteredMovies,
+  foundMovieById,
 };

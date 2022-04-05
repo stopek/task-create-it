@@ -22,6 +22,10 @@ const theme = createTheme({
     subtitle1: {
       fontSize: "1.3rem",
     },
+    subtitle2: {
+      fontSize: "1rem",
+      lineHeight: 2
+    },
   },
   components: {
     MuiGrid: {

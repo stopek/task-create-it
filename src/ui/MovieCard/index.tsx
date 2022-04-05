@@ -4,7 +4,10 @@ import { CardProps } from "@mui/material/Card/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import { paths } from "routing/paths";
+import fillRoute from "routing/utils";
 import styled from "styled-components";
+import { ClearLink } from "styles/styled";
 import { IMovie } from "types/apple";
 
 interface IMovieCard extends CardProps {
@@ -25,24 +28,26 @@ const StyledCard = styled(Card)`
 
 const MovieCard = ({ movie, ...rest }: IMovieCard) => (
   <StyledCard {...rest}>
-    <CardActionArea>
-      <CardMedia
-        component="img"
-        height="340"
-        image={movie["im:image"]?.[2]?.label}
-        alt={movie.title.label}
-      />
+    <ClearLink to={fillRoute(paths.MOVIE,  { id: movie.id.attributes["im:id"] })}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="340"
+          image={movie["im:image"]?.[2]?.label}
+          alt={movie.title.label}
+        />
 
-      <CardContent>
-        <Typography gutterBottom variant="body2" color="text.secondary">
-          {movie.category.attributes.term}
-        </Typography>
+        <CardContent>
+          <Typography gutterBottom variant="body2" color="text.secondary">
+            {movie.category.attributes.term}
+          </Typography>
 
-        <Typography variant="h5" component="div">
-          {movie["im:name"].label}
-        </Typography>
-      </CardContent>
-    </CardActionArea>
+          <Typography variant="h5" component="div">
+            {movie["im:name"].label}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </ClearLink>
   </StyledCard>
 );
 
