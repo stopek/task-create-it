@@ -1,9 +1,19 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const Welcome = () => (
-  <Typography variant="h1">
-    Hello Word!
-  </Typography>
+  <Box display="flex" flexDirection="column">
+    <Box>
+      <Typography variant="h1">
+        Hi,
+      </Typography>
+    </Box>
+
+    <Box>
+      <Typography variant="subtitle1">
+        Welcome back!
+      </Typography>
+    </Box>
+  </Box>
 );
 
 export default Welcome;

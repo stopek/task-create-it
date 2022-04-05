@@ -1,3 +1,7 @@
 import { combineReducers } from "redux";
 
-export default combineReducers({});
+import appleSlice from "./apple";
+
+export default combineReducers({
+  apple: appleSlice,
+});
