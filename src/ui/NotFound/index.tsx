@@ -11,18 +11,24 @@ const TextContent = styled.div`
   margin-bottom: 25px;
 `;
 
-const NotFound = () => (
+interface INotFound {
+  withoutBackButton?: boolean;
+}
+
+const NotFound = ({ withoutBackButton }: INotFound) => (
   <Content>
     <TextContent>
-      <Typography variant="h1">UPS, 404</Typography>
-      <Typography variant="subtitle1">PurPur couldn't find this page...</Typography>
+      <Typography variant="h1">OOPS,</Typography>
+      <Typography variant="subtitle1">PurPur found nothing on this page...</Typography>
     </TextContent>
 
-    <ClearLink to={paths.HOMEPAGE}>
-      <Button color="primary" variant="contained" size="large">
-        Back to Home
-      </Button>
-    </ClearLink>
+    {!withoutBackButton && (
+      <ClearLink to={paths.HOMEPAGE}>
+        <Button color="primary" variant="contained" size="large">
+          Back to Home
+        </Button>
+      </ClearLink>
+    )}
   </Content>
 );
 
