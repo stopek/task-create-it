@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { handleRejectValues } from "routing/utils";
 import servicesApple from "services/api/apple";
 import { IMovie } from "types/apple";
-import { IGetTopMoviesResponse } from "types/services/apple";
 
 interface ITopMoviesState {
   top_movies: IMovie[];
@@ -20,8 +19,8 @@ export const appleSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(topMovies.fulfilled, (state, action: PayloadAction<IGetTopMoviesResponse>) => {
-        state.top_movies = action.payload.data.feed.entry;
+      .addCase(topMovies.fulfilled, (state, action: PayloadAction<IMovie[]>) => {
+        state.top_movies = action.payload;
       });
   },
 });

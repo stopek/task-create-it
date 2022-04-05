@@ -1,11 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { isProduction } from "hooks/envirionment";
 import logger from "redux-logger";
 import { persistReducer, persistStore } from "redux-persist";
+import { PERSIST } from "redux-persist/es/constants";
 import storage from "redux-persist/lib/storage";
 import rootReducer from "store/reducers";
+import { isProduction } from "utils/envirionment";
 
-const middleware = (getDefaultMiddleware: () => any) => (isProduction ? getDefaultMiddleware() : getDefaultMiddleware().concat(logger));
+const ignoreActions = {
+  serializableCheck: {
+    ignoredActions: [PERSIST],
+  },
+};
+
+const middleware = (getDefaultMiddleware: (...props: any) => any) =>
+  (isProduction ? getDefaultMiddleware(ignoreActions) : getDefaultMiddleware(ignoreActions).concat(logger));
 
 const persistConfig = {
   key: "root",
