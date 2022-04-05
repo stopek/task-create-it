@@ -1,4 +1,4 @@
-import { ActionReducerMapBuilder, AnyAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { ActionReducerMapBuilder, AnyAction, createAsyncThunk, Draft } from "@reduxjs/toolkit";
 import axios from "axios";
 
 import { ILoadingState } from "./types";
@@ -10,16 +10,16 @@ const isRejectedErrorAction = (action: AnyAction) => action.type.endsWith("rejec
 
 const setStateMatchers = <T extends ILoadingState>(builder: ActionReducerMapBuilder<T>) =>
   builder
-    .addMatcher(isPendingAction, (state) => {
+    .addMatcher(isPendingAction, (state: Draft<T>) => {
       state.state = { error: false, loading: true, crash: false };
     })
-    .addMatcher(isFulfilledAction, (state) => {
+    .addMatcher(isFulfilledAction, (state: Draft<T>) => {
       state.state = { error: false, loading: false, crash: false };
     })
-    .addMatcher(isCrashedAction, (state) => {
+    .addMatcher(isCrashedAction, (state: Draft<T>) => {
       state.state = { error: false, loading: false, crash: true };
     })
-    .addMatcher(isRejectedErrorAction, (state) => {
+    .addMatcher(isRejectedErrorAction, (state: Draft<T>) => {
       state.state = { error: true, loading: false, crash: false };
     });
 

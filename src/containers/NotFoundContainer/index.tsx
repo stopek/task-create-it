@@ -1,5 +1,6 @@
 import Layout from "components/Layout";
-import NotFound from "components/NotFound";
+
+import NotFound from "ui/NotFound";
 
 const NotFoundContainer = () => (
   <Layout center>
