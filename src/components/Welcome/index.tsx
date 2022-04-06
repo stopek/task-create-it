@@ -26,7 +26,7 @@ const Welcome = ({ menuItems }: IWelcome) => (
     <Box display="flex" flexDirection="column" alignItems="center">
       <Box>
         <Typography variant="h1">
-          3P
+          PurPur
         </Typography>
       </Box>
 
