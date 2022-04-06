@@ -10,6 +10,14 @@ const FooterContainer = styled.footer`
   z-index: 10;
 `;
 
+const FooterText = styled(Typography)`
+  opacity: 0.3;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
 const StyledPaper = styled(Paper)`
   padding: 5px;
 `;
@@ -17,9 +25,9 @@ const StyledPaper = styled(Paper)`
 const Footer = () => (
   <FooterContainer>
     <StyledPaper elevation={0}>
-      <Typography variant="body2">
+      <FooterText variant="body2">
         Copyright © 2022, PurPurPrime. Thanks to the Apple API
-      </Typography>
+      </FooterText>
     </StyledPaper>
   </FooterContainer>
 );

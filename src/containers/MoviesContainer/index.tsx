@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import AdvancedSearch from "components/AdvancedSearch";
 import MoviesListSimple from "components/MoviesListSimple";
 
-import NotFound from "ui/NotFound";
+import Error from "ui/Error";
 
 import MovieOverlay from "overlays/MovieOverlay";
 
@@ -25,7 +25,11 @@ const MoviesContainer = () => {
       </Box>
 
       {!filtered.length && (
-        <NotFound withoutBackButton />
+        <Error
+          message="PurPur cannot find any matching movie"
+          description="Please be less precise"
+          withoutReload
+        />
       )}
 
       <MoviesListSimple movies={filtered} />

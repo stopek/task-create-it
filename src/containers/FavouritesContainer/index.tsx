@@ -1,6 +1,6 @@
 import MoviesListSimple from "components/MoviesListSimple";
 
-import NotFound from "ui/NotFound";
+import Error from "ui/Error";
 
 import MovieOverlay from "overlays/MovieOverlay";
 
@@ -19,7 +19,11 @@ const FavouritesContainer = () => {
   return (
     <MovieOverlay>
       {!ids.length && (
-        <NotFound withoutBackButton />
+        <Error
+          description="Add some movie to your favourites list"
+          message="PurPur likes you but you don't like our movies?"
+          withoutReload
+        />
       )}
 
       <MoviesListSimple movies={favouritesMovies} />
