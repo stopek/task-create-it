@@ -4,12 +4,12 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import Root from "./root";
 
-import "./index.css";
+import "./index.scss";
 
 const container = document.getElementById("root");
 if (!container) {
   const notFoundMessage = document.createElement("div");
-  notFoundMessage.textContent = "Root doesn't exists.";
+  notFoundMessage.textContent = "Root doesn't found.";
   document.body.appendChild(notFoundMessage);
 } else {
   const root = ReactDOM.createRoot(container);
