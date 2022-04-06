@@ -7,12 +7,12 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
+import FavouriteIcon from "ui/FavouriteIcon";
+
 import { paths } from "routing/paths";
 import fillRoute from "routing/utils";
 import { ClearLink } from "styles/styled";
 import { IMovie } from "types/apple";
-
-import FavouriteIcon from "../FavouriteIcon";
 
 interface IMovieCard extends CardProps {
   movie: IMovie;
@@ -37,6 +37,19 @@ const LikeContent = styled.div`
   top: 0;
   right: 0;
   z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  &:before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 150px;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  }
 `;
 
 const MovieCard = ({ movie, ...rest }: IMovieCard) => (
@@ -45,7 +58,7 @@ const MovieCard = ({ movie, ...rest }: IMovieCard) => (
       <FavouriteIcon id={movie.id.attributes["im:id"]} />
     </LikeContent>
 
-    <ClearLink to={fillRoute(paths.MOVIE,  { id: movie.id.attributes["im:id"] })}>
+    <ClearLink to={fillRoute(paths.MOVIE, { id: movie.id.attributes["im:id"] })}>
       <CardActionArea>
 
         <CardMedia

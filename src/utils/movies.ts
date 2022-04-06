@@ -1,8 +1,8 @@
+import { ISelectOption } from "ui/Select";
+
 import { ISearchState } from "store/reducers/search";
 
 import { IMovie } from "types/apple";
-
-import { ISelectOption } from "../ui/forms/Select";
 
 const filteredMovies = (list: IMovie[], fields: ISearchState["fields"]): IMovie[] => {
   let localMovies = [...list];
@@ -77,7 +77,6 @@ const createMoviesFromIds = (movies: IMovie[], ids: string[]): IMovie[] => {
 
   return response;
 }
-
 
 export {
   filteredMovies,

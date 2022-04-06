@@ -24,10 +24,9 @@ const Select = ({ onChange, options, label, ...rest }: ISelect) => {
 
   return (
     <FormControl fullWidth>
-      <InputLabel id="demo-simple-select-label">{label}</InputLabel>
+      <InputLabel id={`simple-select-${rest.id}`}>{label}</InputLabel>
       <MaterialSelect
-        labelId="simple-select-label"
-        id="simple-select"
+        labelId={`simple-select-${rest.id}`}
         onChange={handleChange}
         {...rest}
       >

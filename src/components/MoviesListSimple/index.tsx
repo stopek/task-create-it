@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 
-import MovieCard from "ui/MovieCard";
+import MovieCard from "components/MovieCard";
 
 import { IMovie } from "types/apple";
 

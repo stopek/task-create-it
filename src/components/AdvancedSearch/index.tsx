@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import { Button, Grid, Slider, TextField, Typography } from "@mui/material";
 
-import Select from "ui/forms/Select";
+import Select from "ui/Select";
 
 import { ISearchState, setSearchParam } from "store/reducers/search";
 import { getSearchParams } from "store/selectors/search";
@@ -62,6 +62,7 @@ const AdvancedSearch = ({ movies }: IAdvancedSearch) => {
 
         <Grid item md={3} xs={12}>
           <Select
+            id="category"
             label="Category"
             variant="filled"
             value={forms.category}
@@ -88,6 +89,7 @@ const AdvancedSearch = ({ movies }: IAdvancedSearch) => {
 
         <Grid item md={3} xs={12}>
           <Select
+            id="artist"
             label="Artist"
             variant="filled"
             value={forms.artist}
