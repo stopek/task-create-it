@@ -1,7 +1,7 @@
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MovieFilterRoundedIcon from "@mui/icons-material/MovieFilterRounded";
-
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { IShareItem } from "ui/Share";
 
 import { paths } from "./paths";
@@ -25,8 +25,12 @@ const shareItems: IShareItem[] = [
   {
     icon: <InstagramIcon />,
     url: "https://www.instagram.com/purpur.thecat"
+  },
+  {
+    icon: <GitHubIcon />,
+    url: "https://github.com/stopek/task-create-it"
   }
-]
+];
 
 export {
   menuItems,
