@@ -40,8 +40,13 @@
         "groups": [
           {
             "name": "external",
-            "match": "^(?!(components|ui|..?)\\/.*$).*",
+            "match": "^(?!(components|ui|hooks|utils|store|@mui|styles|types|routing|..?)\\/.*$).*",
             "order": 1
+          },
+          {
+            "name": "@mui",
+            "match": "^@mui/",
+            "order": 2
           },
           {
             "name": "components",
@@ -52,6 +57,16 @@
             "name": "ui",
             "match": "^ui/",
             "order": 20
+          },
+          {
+            "name": "store",
+            "match": "^store/",
+            "order": 20
+          },
+          {
+            "name": "others",
+            "match": "^(styles|types|routing)/",
+            "order": 100
           },
           {
             "name": "local",
