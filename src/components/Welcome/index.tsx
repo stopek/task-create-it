@@ -8,7 +8,7 @@ import Share from "ui/Share";
 import { shareItems } from "routing/configs";
 import { IMenuItem } from "routing/types";
 
-import Search from "../Search";
+import Search from "../../ui/Search";
 
 interface IWelcome {
   menuItems: IMenuItem[];

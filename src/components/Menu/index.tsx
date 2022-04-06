@@ -18,7 +18,7 @@ import { paths } from "routing/paths";
 import { IMenuItem } from "routing/types";
 import { ClearLink } from "styles/styled";
 
-import Search from "../Search";
+import Search from "../../ui/Search";
 import { AppBar, Drawer, DrawerHeader } from "./styled";
 
 interface IMenu {
