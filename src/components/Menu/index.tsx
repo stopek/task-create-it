@@ -9,10 +9,11 @@ import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
 import { IMenuItem } from "routing/types";
 import styled from "styled-components";
 import { ClearLink } from "styles/styled";
+
+import FavouriteBadgeIcon from "ui/FavouriteBadgeIcon";
 
 import Search from "../Search";
 import { AppBar, Drawer, DrawerHeader } from "./styled";
@@ -28,15 +29,10 @@ const RightContent = styled.div`
 `;
 
 const Menu = ({ items }: IMenu) => {
-  const match = useLocation();
   const [open, setOpen] = useState<boolean>(false);
 
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
-
-  console.log({
-    match,
-  });
 
   return (
     <>
@@ -61,6 +57,7 @@ const Menu = ({ items }: IMenu) => {
 
           <RightContent>
             <Search />
+            <FavouriteBadgeIcon />
           </RightContent>
         </Toolbar>
       </AppBar>
