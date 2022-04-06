@@ -10,8 +10,6 @@ import Share from "ui/Share";
 import { shareItems } from "routing/configs";
 import { IMenuItem } from "routing/types";
 
-import "./styles.scss";
-
 interface IWelcome {
   menuItems: IMenuItem[];
 }

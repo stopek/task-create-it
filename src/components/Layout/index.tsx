@@ -33,7 +33,7 @@ const Content = styled.div<{ center?: boolean, loader?: boolean }>`
   `}
 
   ${props => !props.loader && css`
-    animation: ${fadeIn} 1s;
+    animation: ${fadeIn} .5s;
   `}
 `;
 
@@ -55,7 +55,7 @@ const Layout = ({ children, center, header, footer, state }: ILayout) => {
 
     const time = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 700);
 
     return () => clearTimeout(time);
   }, [isLoading]);

@@ -4,6 +4,8 @@ import { paths } from "routing/paths";
 import { primaryFont, secondaryFont } from "styles/configs";
 import { ClearLink } from "styles/styled";
 
+import "./styles.scss";
+
 const ProjectName = styled.h3`
   font-family: ${primaryFont};
   font-weight: 400;
@@ -30,9 +32,9 @@ const LogoLink = styled(ClearLink)`
 const Logo = () => (
   <LogoLink to={paths.HOMEPAGE}>
     <ProjectName>
-    <span>
-      PURPUR<span className="neon-text">PRIME</span>
-    </span>
+      <span>
+        PURPUR<span className="neon-text">PRIME</span>
+      </span>
 
       <Motto>
         .be prime like PurPur PRIME

@@ -54,12 +54,11 @@ const LikeContent = styled.div`
 
 const MovieCard = ({ movie, ...rest }: IMovieCard) => (
   <StyledCard {...rest}>
-    <LikeContent>
-      <FavouriteIcon id={movie.id.attributes["im:id"]} />
-    </LikeContent>
-
-    <ClearLink to={fillRoute(paths.MOVIE, { id: movie.id.attributes["im:id"] })}>
-      <CardActionArea>
+    <CardActionArea>
+      <ClearLink to={fillRoute(paths.MOVIE, { id: movie.id.attributes["im:id"] })}>
+        <LikeContent>
+          <FavouriteIcon id={movie.id.attributes["im:id"]} />
+        </LikeContent>
 
         <CardMedia
           component="img"
@@ -81,8 +80,8 @@ const MovieCard = ({ movie, ...rest }: IMovieCard) => (
             {movie["im:price"].label}
           </Typography>
         </CardContent>
-      </CardActionArea>
-    </ClearLink>
+      </ClearLink>
+    </CardActionArea>
   </StyledCard>
 );
 

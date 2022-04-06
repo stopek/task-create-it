@@ -13,14 +13,14 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 
+import FavouriteIcon from "ui/FavouriteIcon";
+import VideoPlayer from "ui/VideoPlayer";
+
 import { setSearchParam } from "store/reducers/search";
 
 import { paths } from "routing/paths";
 import { ClearLink } from "styles/styled";
 import { IMovie } from "types/apple";
-
-import FavouriteIcon from "../FavouriteIcon";
-import VideoPlayer from "../VideoPlayer";
 
 import { useAppDispatch } from "hooks/redux";
 
@@ -135,7 +135,7 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
         </StyledDialogContent>
 
         <DialogActions>
-          <Button onClick={handleClose} variant="contained" size="large">Ok, nice trailer</Button>
+          <Button onClick={handleClose} variant="contained" size="large">Ok, Mrrau trailer</Button>
         </DialogActions>
       </Dialog>
 
@@ -160,7 +160,8 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
                 {movie.title.label}
                 <Category>
                   {movie["im:contentType"].attributes.label},{" "}
-                  <CategoryName onClick={handleCategoryClick}>{movie.category.attributes.label}</CategoryName>
+                  <CategoryName onClick={handleCategoryClick}>{movie.category.attributes.label}</CategoryName>,{" "}
+                  {movie["im:artist"].label}
                 </Category>
               </Typography>
             </Box>

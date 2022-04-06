@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import MoviePreview from "ui/MoviePreview";
+import MoviePreview from "components/MoviePreview";
 import NotFound from "ui/NotFound";
 
 import MovieOverlay from "overlays/MovieOverlay";
