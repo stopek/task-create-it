@@ -1,4 +1,4 @@
-import ReactPlayer from "react-player";
+import ReactPlayer, { ReactPlayerProps } from "react-player";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -9,10 +9,12 @@ const Wrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
+    padding: 0;
+    margin: 0;
   }
 `;
 
-interface IVideoPlayer {
+interface IVideoPlayer extends ReactPlayerProps {
   filePath: string;
 }
 
@@ -22,6 +24,7 @@ const VideoPlayer = ({ filePath }: IVideoPlayer) => (
       url={filePath}
       width="100%"
       height="100%"
+      playing
       controls
     />
   </Wrapper>

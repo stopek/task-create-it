@@ -21,6 +21,7 @@ const StyledTextField = styled(TextField)`
 const Container = styled.div`
   display: flex;
   gap: 15px;
+  align-items: center;
 `;
 
 interface ISearch {
@@ -71,15 +72,17 @@ const Search = ({ expanded }: ISearch) => {
         />
       )}
 
-      <IconButton
-        size="large"
-        aria-label="search"
-        color="inherit"
-        type="submit"
-        onClick={handleSearchToggle}
-      >
-        <SearchIcon />
-      </IconButton>
+      {!expanded && (
+        <IconButton
+          size="large"
+          aria-label="search"
+          color="inherit"
+          type="submit"
+          onClick={handleSearchToggle}
+        >
+          <SearchIcon />
+        </IconButton>
+      )}
     </Container>
   );
 };
