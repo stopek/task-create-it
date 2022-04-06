@@ -16,8 +16,7 @@ const favouriteSlice = createSlice({
       state.movies = [...state.movies, ...action.payload];
     },
     removeFromFavourite: (state, action: PayloadAction<string>) => {
-      const newMovies = state.movies.filter(movieId => movieId !== action.payload);
-      state.movies = [...newMovies];
+      state.movies = [...state.movies].filter(movieId => movieId !== action.payload);
     },
   },
 });
