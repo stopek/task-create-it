@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 
 import { CircularProgress } from "@mui/material";
@@ -35,26 +35,43 @@ interface ILayout extends Partial<ILoadingState> {
   footer?: boolean;
 }
 
-const Layout = ({ children, center, header, footer, state }: ILayout) => (state?.error || state?.crash) ? (
-  <Content center={true}>
-    <Error />
-  </Content>
-) : (
-  <>
-    {header && !center && <Menu items={menuItems} />}
+const Layout = ({ children, center, header, footer, state }: ILayout) => {
+  const [loading, setLoading] = useState<boolean>(true);
 
-    {state?.loading ? (
-      <Content center={true}>
-        <CircularProgress />
-      </Content>
-    ) : (
-      <Content center={center}>
-        {children}
-      </Content>
-    )}
+  const isLoading = state?.loading || false;
 
-    {footer && <Footer />}
-  </>
-);
+  // fake long api call
+  useEffect(() => {
+    setLoading(true);
+
+    const time = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(time);
+  }, [isLoading]);
+
+  return (state?.error || state?.crash) ? (
+    <Content center={true}>
+      <Error />
+    </Content>
+  ) : (
+    <>
+      {header && !center && <Menu items={menuItems} />}
+
+      {state?.loading || loading ? (
+        <Content center={true}>
+          <CircularProgress />
+        </Content>
+      ) : (
+        <Content center={center}>
+          {children}
+        </Content>
+      )}
+
+      {footer && <Footer />}
+    </>
+  );
+};
 
 export default Layout;
