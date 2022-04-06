@@ -7,12 +7,12 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
+import FavouriteIcon from "ui/FavouriteIcon";
+
 import { paths } from "routing/paths";
 import fillRoute from "routing/utils";
 import { ClearLink } from "styles/styled";
 import { IMovie } from "types/apple";
-
-import FavouriteIcon from "../FavouriteIcon";
 
 interface IMovieCard extends CardProps {
   movie: IMovie;

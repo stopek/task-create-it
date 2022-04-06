@@ -13,12 +13,12 @@ import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 
 import FavouriteBadgeIcon from "ui/FavouriteBadgeIcon";
+import Search from "ui/Search";
 
 import { paths } from "routing/paths";
 import { IMenuItem } from "routing/types";
 import { ClearLink } from "styles/styled";
 
-import Search from "../../ui/Search";
 import { AppBar, Drawer, DrawerHeader } from "./styled";
 
 interface IMenu {
