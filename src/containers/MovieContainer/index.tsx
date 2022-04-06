@@ -1,11 +1,12 @@
-import { useAppSelector } from "hooks/redux";
 import MovieOverlay from "overlays/MovieOverlay";
 import { useParams } from "react-router-dom";
-import { getTopMovies } from "store/selectors/apple";
-import { foundMovieById } from "utils/movies";
 
+import { getTopMovies } from "store/selectors/apple";
 import MoviePreview from "ui/MoviePreview";
 import NotFound from "ui/NotFound";
+
+import { useAppSelector } from "hooks/redux";
+import { foundMovieById } from "utils/movies";
 
 const MovieContainer = () => {
   const { id } = useParams<{ id: string }>();

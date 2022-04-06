@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import "./index.css";
-
 import reportWebVitals from "./reportWebVitals";
 import Root from "./root";
+
+import "./index.css";
 
 const container = document.getElementById("root");
 if (!container) {

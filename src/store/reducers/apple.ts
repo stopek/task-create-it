@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import servicesApple from "services/api/apple";
+
 import { IMovie } from "types/apple";
 
 import { ILoadingState } from "./types";

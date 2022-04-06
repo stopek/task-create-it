@@ -1,15 +1,18 @@
-import SearchIcon from "@mui/icons-material/Search";
-import { Button, Grid, Slider, TextField, Typography } from "@mui/material";
-import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { paths } from "routing/paths";
+
+import SearchIcon from "@mui/icons-material/Search";
+import { Button, Grid, Slider, TextField, Typography } from "@mui/material";
+
 import { ISearchState, setSearchParam } from "store/reducers/search";
 import { getSearchParams } from "store/selectors/search";
-import { IMovie } from "types/apple";
-import { createArtist, createCategories } from "utils/movies";
-
 import Select from "ui/forms/Select";
+
+import { paths } from "routing/paths";
+import { IMovie } from "types/apple";
+
+import { useAppDispatch, useAppSelector } from "hooks/redux";
+import { createArtist, createCategories } from "utils/movies";
 
 interface IAdvancedSearch {
   movies: IMovie[];

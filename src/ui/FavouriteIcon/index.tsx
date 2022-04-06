@@ -1,10 +1,13 @@
+import { MouseEvent } from "react";
+
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
-import { useAppDispatch, useAppSelector } from "hooks/redux";
-import { MouseEvent } from "react";
+
 import { addToFavourite, removeFromFavourite } from "store/reducers/favourite";
 import { getTopMovies } from "store/selectors/apple";
 import { getFavourites } from "store/selectors/favourite";
+
+import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { createMoviesFromIds, existsInFavourites } from "utils/movies";
 
 interface IFavouriteIcon {

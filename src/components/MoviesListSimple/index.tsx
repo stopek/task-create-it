@@ -1,7 +1,8 @@
 import { Grid } from "@mui/material";
-import { IMovie } from "types/apple";
 
 import MovieCard from "ui/MovieCard";
+
+import { IMovie } from "types/apple";
 
 interface IMoviesListSimple {
   movies: IMovie[];

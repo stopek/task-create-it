@@ -1,7 +1,7 @@
-import { menuItems } from "routing/configs";
-
 import Layout from "components/Layout";
 import Welcome from "components/Welcome";
+
+import { menuItems } from "routing/configs";
 
 const HomeContainer = () => (
   <Layout center>

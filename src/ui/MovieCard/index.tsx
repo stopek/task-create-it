@@ -1,12 +1,14 @@
+import styled from "styled-components";
+
 import { CardActionArea } from "@mui/material";
 import Card from "@mui/material/Card";
 import { CardProps } from "@mui/material/Card/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+
 import { paths } from "routing/paths";
 import fillRoute from "routing/utils";
-import styled from "styled-components";
 import { ClearLink } from "styles/styled";
 import { IMovie } from "types/apple";
 
@@ -18,7 +20,7 @@ interface IMovieCard extends CardProps {
 
 const StyledCard = styled(Card)`
   position: relative;
-  
+
   &, button, .MuiCardContent-root {
     height: 100%;
   }

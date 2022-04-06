@@ -1,3 +1,7 @@
+import logo from "assets/logo.png";
+import { useState } from "react";
+import styled from "styled-components";
+
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import MenuIcon from "@mui/icons-material/Menu";
 import Divider from "@mui/material/Divider";
@@ -7,14 +11,12 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
-import logo from "assets/logo.png";
-import { useState } from "react";
-import { paths } from "routing/paths";
-import { IMenuItem } from "routing/types";
-import styled from "styled-components";
-import { ClearLink } from "styles/styled";
 
 import FavouriteBadgeIcon from "ui/FavouriteBadgeIcon";
+
+import { paths } from "routing/paths";
+import { IMenuItem } from "routing/types";
+import { ClearLink } from "styles/styled";
 
 import Search from "../Search";
 import { AppBar, Drawer, DrawerHeader } from "./styled";

@@ -1,10 +1,12 @@
-import { Box, Typography } from "@mui/material";
-import { shareItems } from "routing/configs";
-import { IMenuItem } from "routing/types";
 import styled from "styled-components";
+
+import { Box, Typography } from "@mui/material";
 
 import HorizontalIconsMenu from "ui/HorizontalIconsMenu";
 import Share from "ui/Share";
+
+import { shareItems } from "routing/configs";
+import { IMenuItem } from "routing/types";
 
 import Search from "../Search";
 

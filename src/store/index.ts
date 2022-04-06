@@ -3,7 +3,9 @@ import logger from "redux-logger";
 import { persistReducer, persistStore } from "redux-persist";
 import { PERSIST } from "redux-persist/es/constants";
 import storage from "redux-persist/lib/storage";
+
 import rootReducer from "store/reducers";
+
 import { isProduction } from "utils/envirionment";
 
 const ignoreActions = {
