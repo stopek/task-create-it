@@ -10,11 +10,15 @@ import styled from "styled-components";
 import { ClearLink } from "styles/styled";
 import { IMovie } from "types/apple";
 
+import FavouriteIcon from "../FavouriteIcon";
+
 interface IMovieCard extends CardProps {
   movie: IMovie;
 }
 
 const StyledCard = styled(Card)`
+  position: relative;
+  
   &, button, .MuiCardContent-root {
     height: 100%;
   }
@@ -26,10 +30,22 @@ const StyledCard = styled(Card)`
   }
 `;
 
+const LikeContent = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+`;
+
 const MovieCard = ({ movie, ...rest }: IMovieCard) => (
   <StyledCard {...rest}>
+    <LikeContent>
+      <FavouriteIcon id={movie.id.attributes["im:id"]} />
+    </LikeContent>
+
     <ClearLink to={fillRoute(paths.MOVIE,  { id: movie.id.attributes["im:id"] })}>
       <CardActionArea>
+
         <CardMedia
           component="img"
           height="340"

@@ -16,6 +16,7 @@ import { setSearchParam } from "store/reducers/search";
 import styled from "styled-components";
 import { ClearLink } from "styles/styled";
 import { IMovie } from "types/apple";
+import FavouriteIcon from "../FavouriteIcon";
 
 import VideoPlayer from "../VideoPlayer";
 
@@ -158,6 +159,9 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
                   <CategoryName onClick={handleCategoryClick}>{movie.category.attributes.label}</CategoryName>
                 </Category>
               </Typography>
+            </Box>
+            <Box>
+              <FavouriteIcon id={movie.id.attributes["im:id"]} />
             </Box>
           </Box>
 
