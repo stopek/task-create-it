@@ -23,17 +23,17 @@ const ShareContainer = styled(Box)`
 `;
 
 const Welcome = ({ menuItems }: IWelcome) => (
-  <Box display="flex" flexDirection="column" gap={5}>
+  <Box display="flex" flexDirection="column" gap={3}>
     <Box display="flex" flexDirection="column" alignItems="center">
       <Box>
-        <Typography variant="h1">
-          <span className="neon-text">PurPur</span>
+        <Typography variant="h3">
+          PURPUR<span className="neon-text">PRIME</span>
         </Typography>
       </Box>
 
-      <Box>
-        <Typography variant="subtitle1">
-          .be prime like PurPur
+      <Box mt="-15px">
+        <Typography variant="subtitle2">
+          .be prime like PurPur PRIME
         </Typography>
       </Box>
     </Box>
