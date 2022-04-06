@@ -1,5 +1,6 @@
-import { Button, Typography } from "@mui/material";
 import styled from "styled-components";
+
+import { Button, Typography } from "@mui/material";
 
 const Content = styled.div`
   max-width: 500px;

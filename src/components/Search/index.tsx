@@ -1,14 +1,18 @@
-import SearchIcon from "@mui/icons-material/Search";
-import { TextField } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { useEffect, useState } from "react";
 import { KeyboardEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { paths } from "routing/paths";
+import styled from "styled-components";
+
+import SearchIcon from "@mui/icons-material/Search";
+import { TextField } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+
 import { setSearchParam } from "store/reducers/search";
 import { getSearchParams } from "store/selectors/search";
-import styled from "styled-components";
+
+import { paths } from "routing/paths";
+
+import { useAppDispatch, useAppSelector } from "hooks/redux";
 
 const StyledTextField = styled(TextField)`
   .MuiInputBase-root {

@@ -1,9 +1,11 @@
-import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { ReactNode, useEffect } from "react";
+
+import Layout from "components/Layout";
+
 import { topMovies } from "store/reducers/apple";
 import { getApiStatus } from "store/selectors/apple";
 
-import Layout from "components/Layout";
+import { useAppDispatch, useAppSelector } from "hooks/redux";
 
 interface IMovieOverlay {
   children: ReactNode;

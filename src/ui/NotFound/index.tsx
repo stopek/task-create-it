@@ -1,6 +1,8 @@
-import { Button, Typography } from "@mui/material";
-import { paths } from "routing/paths";
 import styled from "styled-components";
+
+import { Button, Typography } from "@mui/material";
+
+import { paths } from "routing/paths";
 import { ClearLink } from "styles/styled";
 
 const Content = styled.div`

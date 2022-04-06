@@ -1,29 +1,17 @@
+import { MouseEvent } from "react";
+
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
-import { useAppDispatch, useAppSelector } from "hooks/redux";
-import { MouseEvent } from "react";
+
 import { addToFavourite, removeFromFavourite } from "store/reducers/favourite";
 import { getTopMovies } from "store/selectors/apple";
 import { getFavourites } from "store/selectors/favourite";
-import { IMovie } from "types/apple";
+
+import { useAppDispatch, useAppSelector } from "hooks/redux";
+import { createMoviesFromIds, existsInFavourites } from "utils/movies";
 
 interface IFavouriteIcon {
   id: string;
-}
-
-const existsInFavourites = (movies: IMovie[], id: string) => !!movies.find(movie => movie.id.attributes["im:id"] === id);
-
-const createMoviesFromIds = (movies: IMovie[], ids: string[]): IMovie[] => {
-  const response: IMovie[] = [];
-
-  ids.forEach(id => {
-    const found = movies.find(movie => movie.id.attributes["im:id"] === id);
-    if (found) {
-      response.push(found);
-    }
-  });
-
-  return response;
 }
 
 const FavouriteIcon = ({ id }: IFavouriteIcon) => {

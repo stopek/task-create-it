@@ -1,3 +1,7 @@
+import logo from "assets/logo.png";
+import { useState } from "react";
+import styled from "styled-components";
+
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import MenuIcon from "@mui/icons-material/Menu";
 import Divider from "@mui/material/Divider";
@@ -7,13 +11,12 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import { useState } from "react";
-import { IMenuItem } from "routing/types";
-import styled from "styled-components";
-import { ClearLink } from "styles/styled";
 
 import FavouriteBadgeIcon from "ui/FavouriteBadgeIcon";
+
+import { paths } from "routing/paths";
+import { IMenuItem } from "routing/types";
+import { ClearLink } from "styles/styled";
 
 import Search from "../Search";
 import { AppBar, Drawer, DrawerHeader } from "./styled";
@@ -26,6 +29,12 @@ const RightContent = styled.div`
   justify-content: flex-end;
   display: flex;
   flex: 1;
+`;
+
+const LogoLink = styled(ClearLink)`
+  display: flex;
+  align-items: center;
+  height: 100%;
 `;
 
 const Menu = ({ items }: IMenu) => {
@@ -51,9 +60,9 @@ const Menu = ({ items }: IMenu) => {
             <MenuIcon />
           </IconButton>
 
-          <Typography variant="h6" noWrap component="div">
-            PurPur Prime
-          </Typography>
+          <LogoLink to={paths.HOMEPAGE}>
+            <img src={logo} alt="PurPurPrime - logo" />
+          </LogoLink>
 
           <RightContent>
             <Search />

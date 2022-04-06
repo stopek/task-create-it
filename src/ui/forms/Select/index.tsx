@@ -1,9 +1,10 @@
+import { ReactNode } from "react";
+
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import { default as MaterialSelect, SelectChangeEvent } from "@mui/material/Select";
 import { SelectProps } from "@mui/material/Select/Select";
-import { ReactNode } from "react";
 
 export interface ISelectOption {
   label: ReactNode;

@@ -1,6 +1,7 @@
-import { SvgIconTypeMap } from "@mui/material/SvgIcon/SvgIcon";
 import { ReactElement } from "react";
 import { RouteProps } from "react-router-dom";
+
+import { SvgIconTypeMap } from "@mui/material/SvgIcon/SvgIcon";
 
 import { paths } from "./paths";
 
