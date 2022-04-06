@@ -60,9 +60,28 @@ const createArtist = (movies: IMovie[]): ISelectOption[] => {
 
   return response;
 };
+
+const existsInFavourites = (movies: IMovie[], id: string) => !!movies.find(movie => movie.id.attributes["im:id"] === id);
+
+const createMoviesFromIds = (movies: IMovie[], ids: string[]): IMovie[] => {
+  const response: IMovie[] = [];
+
+  ids.forEach(id => {
+    const found = movies.find(movie => movie.id.attributes["im:id"] === id);
+    if (found) {
+      response.push(found);
+    }
+  });
+
+  return response;
+}
+
+
 export {
   filteredMovies,
   foundMovieById,
   createCategories,
   createArtist,
+  existsInFavourites,
+  createMoviesFromIds,
 };

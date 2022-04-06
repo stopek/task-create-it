@@ -18,7 +18,6 @@ const MoviesContainer = () => {
   return (
     <MovieOverlay>
       <Box pb={4}>
-
         <AdvancedSearch movies={movies} />
       </Box>
 
