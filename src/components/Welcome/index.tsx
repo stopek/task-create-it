@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 import HorizontalIconsMenu from "ui/HorizontalIconsMenu";
+import Logo from "ui/Logo";
 import Search from "ui/Search";
 import Share from "ui/Share";
 
@@ -22,21 +23,16 @@ const ShareContainer = styled(Box)`
   transform: translateX(-50%);
 `;
 
+const LogoWrapper = styled(Box)`
+  font-size: 3rem;
+  text-align: center;
+`;
+
 const Welcome = ({ menuItems }: IWelcome) => (
   <Box display="flex" flexDirection="column" gap={3}>
-    <Box display="flex" flexDirection="column" alignItems="center">
-      <Box>
-        <Typography variant="h3">
-          PURPUR<span className="neon-text">PRIME</span>
-        </Typography>
-      </Box>
-
-      <Box mt="-15px">
-        <Typography variant="subtitle2">
-          .be prime like PurPur PRIME
-        </Typography>
-      </Box>
-    </Box>
+    <LogoWrapper display="flex" flexDirection="column" alignItems="center">
+      <Logo />
+    </LogoWrapper>
 
     <Box>
       <Search expanded />
