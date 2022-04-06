@@ -1,4 +1,3 @@
-import logo from "assets/logo.png";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -13,9 +12,9 @@ import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 
 import FavouriteBadgeIcon from "ui/FavouriteBadgeIcon";
+import Logo from "ui/Logo";
 import Search from "ui/Search";
 
-import { paths } from "routing/paths";
 import { IMenuItem } from "routing/types";
 import { ClearLink } from "styles/styled";
 
@@ -31,10 +30,8 @@ const RightContent = styled.div`
   flex: 1;
 `;
 
-const LogoLink = styled(ClearLink)`
-  display: flex;
-  align-items: center;
-  height: 100%;
+const LogoWrapper = styled.div`
+  font-size: 1.5rem;
 `;
 
 const Menu = ({ items }: IMenu) => {
@@ -60,9 +57,9 @@ const Menu = ({ items }: IMenu) => {
             <MenuIcon />
           </IconButton>
 
-          <LogoLink to={paths.HOMEPAGE}>
-            <img src={logo} alt="PurPurPrime - logo" />
-          </LogoLink>
+          <LogoWrapper>
+            <Logo />
+          </LogoWrapper>
 
           <RightContent>
             <Search />

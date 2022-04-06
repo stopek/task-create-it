@@ -38,7 +38,7 @@ const FavouriteIcon = ({ id }: IFavouriteIcon) => {
       color="inherit"
       onClick={handleLikeClick}
     >
-      <FavoriteIcon color={exists ? "primary" : "action"} fontSize="large" />
+      <FavoriteIcon color={exists ? "primary" : "action"} fontSize="medium" />
     </IconButton>
   );
 };

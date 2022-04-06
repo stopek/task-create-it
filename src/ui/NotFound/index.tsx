@@ -20,8 +20,11 @@ interface INotFound {
 const NotFound = ({ withoutBackButton }: INotFound) => (
   <Content>
     <TextContent>
-      <Typography variant="h1">OOPS,</Typography>
-      <Typography variant="subtitle1">PurPur found nothing on this page...</Typography>
+      <Typography variant="h1">UPS...</Typography>
+      <Typography variant="subtitle1">PurPur cannot found nothing on this page</Typography>
+      <Typography variant="body2">
+        He's probably asleep at the moment...
+      </Typography>
     </TextContent>
 
     {!withoutBackButton && (

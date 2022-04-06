@@ -13,14 +13,14 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 
+import FavouriteIcon from "ui/FavouriteIcon";
+import VideoPlayer from "ui/VideoPlayer";
+
 import { setSearchParam } from "store/reducers/search";
 
 import { paths } from "routing/paths";
 import { ClearLink } from "styles/styled";
 import { IMovie } from "types/apple";
-
-import FavouriteIcon from "../FavouriteIcon";
-import VideoPlayer from "../VideoPlayer";
 
 import { useAppDispatch } from "hooks/redux";
 
@@ -103,19 +103,26 @@ const CategoryName = styled.span`
   cursor: pointer;
 `;
 
+const PreviewContainer = styled.div`
+  width: 100%;
+  max-width: 900px;
+  margin-left: 65px;
+`;
+
 const MoviePreview = ({ movie }: IMoviePreview) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const [open, setOpen] = useState<boolean>(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   if (!movie) {
     return null;
   }
 
   const rentalPrice = movie["im:rentalPrice"]?.label;
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const handleCategoryClick = () => {
     dispatch<any>(setSearchParam({
@@ -135,7 +142,7 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
         </StyledDialogContent>
 
         <DialogActions>
-          <Button onClick={handleClose} variant="contained" size="large">Ok, nice trailer</Button>
+          <Button onClick={handleClose} variant="contained" size="large">Ok, Mrrau trailer</Button>
         </DialogActions>
       </Dialog>
 
@@ -160,10 +167,12 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
                 {movie.title.label}
                 <Category>
                   {movie["im:contentType"].attributes.label},{" "}
-                  <CategoryName onClick={handleCategoryClick}>{movie.category.attributes.label}</CategoryName>
+                  <CategoryName onClick={handleCategoryClick}>{movie.category.attributes.label}</CategoryName>,{" "}
+                  {movie["im:artist"].label}
                 </Category>
               </Typography>
             </Box>
+
             <Box>
               <FavouriteIcon id={movie.id.attributes["im:id"]} />
             </Box>
@@ -184,35 +193,37 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
 
         <Divider />
 
-        <Grid container spacing={2}>
-          <Grid item md={3} xs={12}>
-            <ImageContent>
-              <Hover onClick={handleOpen}>
-                <PlayIcon />
-              </Hover>
+        <PreviewContainer>
+          <Grid container spacing={2}>
+            <Grid item md={3} xs={12}>
+              <ImageContent>
+                <Hover onClick={handleOpen}>
+                  <PlayIcon />
+                </Hover>
 
-              <CardMedia
-                component="img"
-                image={movie["im:image"]?.[2]?.label}
-                alt={movie.title.label}
-              />
-            </ImageContent>
+                <CardMedia
+                  component="img"
+                  image={movie["im:image"]?.[2]?.label}
+                  alt={movie.title.label}
+                />
+              </ImageContent>
+            </Grid>
+
+            <Grid item md={9} xs={12}>
+              <Box display="flex" rowGap={2} flexDirection="column">
+                <Typography variant="subtitle2">
+                  {movie.summary.label}
+                </Typography>
+
+                <Divider />
+
+                <Rights>
+                  {movie.rights.label}
+                </Rights>
+              </Box>
+            </Grid>
           </Grid>
-
-          <Grid item md={9} xs={12}>
-            <Box display="flex" rowGap={2} flexDirection="column">
-              <Typography variant="subtitle2">
-                {movie.summary.label}
-              </Typography>
-
-              <Divider />
-
-              <Rights>
-                {movie.rights.label}
-              </Rights>
-            </Box>
-          </Grid>
-        </Grid>
+        </PreviewContainer>
       </Container>
     </>
   );

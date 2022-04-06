@@ -28,6 +28,7 @@ const theme = createTheme({
     },
   },
   components: {
+    
     MuiGrid: {
       defaultProps: {
         padding: 0,

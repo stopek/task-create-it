@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 import { CircularProgress } from "@mui/material";
 
@@ -12,7 +12,12 @@ import { menuItems } from "routing/configs";
 import Footer from "../Footer";
 import Menu from "../Menu";
 
-const Content = styled.div<{ center?: boolean }>`
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to   { opacity: 1; }
+`;
+
+const Content = styled.div<{ center?: boolean, loader?: boolean }>`
   ${props => props.center ? css`
     width: 100%;
     height: 100vh;
@@ -25,6 +30,10 @@ const Content = styled.div<{ center?: boolean }>`
     left: 85px;
     right: 20px;
     top: 55px;
+  `}
+
+  ${props => !props.loader && css`
+    animation: ${fadeIn} .5s;
   `}
 `;
 
@@ -46,7 +55,7 @@ const Layout = ({ children, center, header, footer, state }: ILayout) => {
 
     const time = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 700);
 
     return () => clearTimeout(time);
   }, [isLoading]);
@@ -60,7 +69,7 @@ const Layout = ({ children, center, header, footer, state }: ILayout) => {
       {header && !center && <Menu items={menuItems} />}
 
       {state?.loading || loading ? (
-        <Content center={true}>
+        <Content center={true} loader>
           <CircularProgress />
         </Content>
       ) : (
