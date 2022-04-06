@@ -3,12 +3,13 @@ import styled from "styled-components";
 import { Box, Typography } from "@mui/material";
 
 import HorizontalIconsMenu from "ui/HorizontalIconsMenu";
+import Search from "ui/Search";
 import Share from "ui/Share";
 
 import { shareItems } from "routing/configs";
 import { IMenuItem } from "routing/types";
 
-import Search from "../../ui/Search";
+import "./styles.scss";
 
 interface IWelcome {
   menuItems: IMenuItem[];
@@ -26,13 +27,13 @@ const Welcome = ({ menuItems }: IWelcome) => (
     <Box display="flex" flexDirection="column" alignItems="center">
       <Box>
         <Typography variant="h1">
-          PurPur
+          <span className="neon-text">PurPur</span>
         </Typography>
       </Box>
 
       <Box>
         <Typography variant="subtitle1">
-          .be PRIME like PurPurPrime
+          .be prime like PurPur
         </Typography>
       </Box>
     </Box>
