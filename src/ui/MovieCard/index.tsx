@@ -45,6 +45,10 @@ const MovieCard = ({ movie, ...rest }: IMovieCard) => (
           <Typography variant="h5" component="div">
             {movie["im:name"].label}
           </Typography>
+
+          <Typography variant="caption" component="div">
+            {movie["im:price"].label}
+          </Typography>
         </CardContent>
       </CardActionArea>
     </ClearLink>

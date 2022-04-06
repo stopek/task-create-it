@@ -1,3 +1,4 @@
+import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
 import { Box, Divider, Grid, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
@@ -6,8 +7,14 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
+import IconButton from "@mui/material/IconButton";
+import { useAppDispatch } from "hooks/redux";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { paths } from "routing/paths";
+import { setSearchParam } from "store/reducers/search";
 import styled from "styled-components";
+import { ClearLink } from "styles/styled";
 import { IMovie } from "types/apple";
 
 import VideoPlayer from "../VideoPlayer";
@@ -86,7 +93,15 @@ const StyledDialogContent = styled(DialogContent)`
   padding: 0;
 `;
 
+const CategoryName = styled.span`
+  text-decoration: underline;
+  cursor: pointer;
+`;
+
 const MoviePreview = ({ movie }: IMoviePreview) => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const [open, setOpen] = useState<boolean>(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -96,6 +111,15 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
   }
 
   const rentalPrice = movie["im:rentalPrice"]?.label;
+
+  const handleCategoryClick = () => {
+    dispatch<any>(setSearchParam({
+      category: movie.category.attributes["im:id"]
+    }));
+
+    navigate(paths.MOVIES);
+  }
+
   return (
     <>
       <Dialog fullWidth open={open} onClose={handleClose} maxWidth="lg">
@@ -112,10 +136,30 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
 
       <Container>
         <TopContainer>
-          <Typography variant="h4">
-            {movie.title.label}
-            <Category>{movie["im:contentType"].attributes.label}, {movie.category.attributes.label}</Category>
-          </Typography>
+          <Box display="flex" gap={2} alignItems="center">
+            <Box>
+              <ClearLink to={paths.MOVIES}>
+                <IconButton
+                  size="large"
+                  aria-label="search"
+                  color="inherit"
+                  type="submit"
+                >
+                  <ChevronLeftRoundedIcon />
+                </IconButton>
+              </ClearLink>
+            </Box>
+
+            <Box>
+              <Typography variant="h4">
+                {movie.title.label}
+                <Category>
+                  {movie["im:contentType"].attributes.label},{" "}
+                  <CategoryName onClick={handleCategoryClick}>{movie.category.attributes.label}</CategoryName>
+                </Category>
+              </Typography>
+            </Box>
+          </Box>
 
           <RightContent>
             <Price>

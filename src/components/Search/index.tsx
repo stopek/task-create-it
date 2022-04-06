@@ -1,6 +1,5 @@
-import DisplaySettingsRoundedIcon from "@mui/icons-material/DisplaySettingsRounded";
 import SearchIcon from "@mui/icons-material/Search";
-import { Box, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { useEffect, useState } from "react";
@@ -27,10 +26,9 @@ const Container = styled.div`
 
 interface ISearch {
   expanded?: boolean;
-  withoutAdvancedIcon?: boolean;
 }
 
-const Search = ({ expanded, withoutAdvancedIcon }: ISearch) => {
+const Search = ({ expanded }: ISearch) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const fields = useAppSelector(getSearchParams);
@@ -52,29 +50,12 @@ const Search = ({ expanded, withoutAdvancedIcon }: ISearch) => {
     navigate(paths.MOVIES);
   };
 
-  const goToSearch = () => {
-    navigate(paths.SEARCH);
-  };
-
   useEffect(() => {
     setPhrase(fields.phrase);
   }, [fields.phrase]);
 
   return (
     <Container>
-      {!withoutAdvancedIcon && (
-        <Box>
-          <IconButton
-            aria-label="search"
-            color="inherit"
-            type="submit"
-            onClick={goToSearch}
-          >
-            <DisplaySettingsRoundedIcon />
-          </IconButton>
-        </Box>
-      )}
-
       {search && (
         <StyledTextField
           id="search-basic"
@@ -91,15 +72,17 @@ const Search = ({ expanded, withoutAdvancedIcon }: ISearch) => {
         />
       )}
 
-      <IconButton
-        size="large"
-        aria-label="search"
-        color="inherit"
-        type="submit"
-        onClick={handleSearchToggle}
-      >
-        <SearchIcon />
-      </IconButton>
+      {!expanded && (
+        <IconButton
+          size="large"
+          aria-label="search"
+          color="inherit"
+          type="submit"
+          onClick={handleSearchToggle}
+        >
+          <SearchIcon />
+        </IconButton>
+      )}
     </Container>
   );
 };
