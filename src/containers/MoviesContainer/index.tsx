@@ -1,13 +1,14 @@
-import MovieOverlay from "overlays/MovieOverlay";
-
 import { Box } from "@mui/material";
 
 import AdvancedSearch from "components/AdvancedSearch";
 import MoviesListSimple from "components/MoviesListSimple";
 
+import NotFound from "ui/NotFound";
+
+import MovieOverlay from "overlays/MovieOverlay";
+
 import { getTopMovies } from "store/selectors/apple";
 import { getSearchParams } from "store/selectors/search";
-import NotFound from "ui/NotFound";
 
 import { useAppSelector } from "hooks/redux";
 import { filteredMovies } from "utils/movies";

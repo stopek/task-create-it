@@ -1,10 +1,11 @@
-import MovieOverlay from "overlays/MovieOverlay";
-
 import MoviesListSimple from "components/MoviesListSimple";
+
+import NotFound from "ui/NotFound";
+
+import MovieOverlay from "overlays/MovieOverlay";
 
 import { getTopMovies } from "store/selectors/apple";
 import { getFavourites } from "store/selectors/favourite";
-import NotFound from "ui/NotFound";
 
 import { useAppSelector } from "hooks/redux";
 import { createMoviesFromIds } from "utils/movies";

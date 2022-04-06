@@ -3,8 +3,9 @@ import styled, { css } from "styled-components";
 
 import { CircularProgress } from "@mui/material";
 
-import { ILoadingState } from "store/reducers/types";
 import Error from "ui/Error";
+
+import { ILoadingState } from "store/reducers/types";
 
 import { menuItems } from "routing/configs";
 

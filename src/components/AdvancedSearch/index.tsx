@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import { Button, Grid, Slider, TextField, Typography } from "@mui/material";
 
+import Select from "ui/forms/Select";
+
 import { ISearchState, setSearchParam } from "store/reducers/search";
 import { getSearchParams } from "store/selectors/search";
-import Select from "ui/forms/Select";
 
 import { paths } from "routing/paths";
 import { IMovie } from "types/apple";
