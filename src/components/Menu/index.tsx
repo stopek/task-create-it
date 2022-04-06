@@ -7,8 +7,9 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import logo from "assets/logo.png";
 import { useState } from "react";
+import { paths } from "routing/paths";
 import { IMenuItem } from "routing/types";
 import styled from "styled-components";
 import { ClearLink } from "styles/styled";
@@ -26,6 +27,12 @@ const RightContent = styled.div`
   justify-content: flex-end;
   display: flex;
   flex: 1;
+`;
+
+const LogoLink = styled(ClearLink)`
+  display: flex;
+  align-items: center;
+  height: 100%;
 `;
 
 const Menu = ({ items }: IMenu) => {
@@ -51,9 +58,9 @@ const Menu = ({ items }: IMenu) => {
             <MenuIcon />
           </IconButton>
 
-          <Typography variant="h6" noWrap component="div">
-            PurPur Prime
-          </Typography>
+          <LogoLink to={paths.HOMEPAGE}>
+            <img src={logo} alt="PurPurPrime - logo" />
+          </LogoLink>
 
           <RightContent>
             <Search />
