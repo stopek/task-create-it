@@ -1,5 +1,4 @@
 import Layout from "components/Layout";
-
 import NotFound from "components/NotFound";
 
 const NotFoundContainer = () => (

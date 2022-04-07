@@ -1,7 +1,8 @@
+import GitHubIcon from '@mui/icons-material/GitHub';
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MovieFilterRoundedIcon from "@mui/icons-material/MovieFilterRounded";
-import GitHubIcon from '@mui/icons-material/GitHub';
+
 import { IShareItem } from "ui/Share";
 
 import { paths } from "./paths";
