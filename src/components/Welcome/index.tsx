@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { Box } from "@mui/material";
+import { BoxProps } from "@mui/material/Box/Box";
 
 import HorizontalIconsMenu from "ui/HorizontalIconsMenu";
 import Logo from "ui/Logo";
@@ -10,7 +11,7 @@ import Share from "ui/Share";
 import { shareItems } from "routing/configs";
 import { IMenuItem } from "routing/types";
 
-interface IWelcome {
+interface IWelcome extends BoxProps {
   menuItems: IMenuItem[];
 }
 
@@ -26,8 +27,8 @@ const LogoWrapper = styled(Box)`
   text-align: center;
 `;
 
-const Welcome = ({ menuItems }: IWelcome) => (
-  <Box display="flex" flexDirection="column" gap={3}>
+const Welcome = ({ menuItems, ...rest }: IWelcome) => (
+  <Box display="flex" flexDirection="column" gap={3} {...rest}>
     <LogoWrapper display="flex" flexDirection="column" alignItems="center">
       <Logo />
     </LogoWrapper>

@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import styled from "styled-components";
 
 import { Button, Typography } from "@mui/material";
@@ -15,9 +16,10 @@ interface IError {
   message?: string;
   description?: string;
   withoutReload?: boolean;
+  children?: ReactNode;
 }
 
-const Error = ({ code, message, withoutReload, description }: IError) => (
+const Error = ({ code, message, withoutReload, description, children }: IError) => (
   <Content>
     <TextContent>
       <Typography variant="h1">UPS{code ? `, ${code}` : "..."}</Typography>
@@ -37,6 +39,8 @@ const Error = ({ code, message, withoutReload, description }: IError) => (
         Try Reload Page
       </Button>
     )}
+
+    {children}
   </Content>
 );
 

@@ -37,7 +37,7 @@ const Content = styled.div<{ center?: boolean, loader?: boolean }>`
   `}
 `;
 
-interface ILayout extends Partial<ILoadingState> {
+export interface ILayout extends Partial<ILoadingState> {
   children: ReactNode;
   center?: boolean;
   header?: boolean;

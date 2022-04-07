@@ -1,17 +1,17 @@
 import { ReactNode, useEffect } from "react";
 
-import Layout from "components/Layout";
+import Layout, { ILayout } from "components/Layout";
 
 import { topMovies } from "store/reducers/apple";
 import { getApiStatus } from "store/selectors/apple";
 
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 
-interface IMovieOverlay {
+interface IMovieOverlay extends ILayout {
   children: ReactNode;
 }
 
-const MovieOverlay = ({ children }: IMovieOverlay) => {
+const MovieOverlay = ({ children, ...rest }: IMovieOverlay) => {
   const dispatch = useAppDispatch();
 
   const status = useAppSelector(getApiStatus);
@@ -21,7 +21,7 @@ const MovieOverlay = ({ children }: IMovieOverlay) => {
   }, [dispatch]);
 
   return (
-    <Layout state={status} header footer>
+    <Layout state={status} header footer {...rest}>
       {children}
     </Layout>
   );
