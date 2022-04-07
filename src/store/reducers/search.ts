@@ -22,13 +22,16 @@ const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {
+    setSearchParamWithReset: (state, action: PayloadAction<Partial<ISearchState["fields"]>>) => {
+      state.fields = { ...initialState.fields, ...action.payload };
+    },
     setSearchParam: (state, action: PayloadAction<Partial<ISearchState["fields"]>>) => {
       state.fields = { ...state.fields, ...action.payload };
     },
   },
 });
 
-export const { setSearchParam } = searchSlice.actions;
+export const { setSearchParam, setSearchParamWithReset } = searchSlice.actions;
 
 export {
   searchSlice,
