@@ -16,7 +16,7 @@ import IconButton from "@mui/material/IconButton";
 import FavouriteIcon from "ui/FavouriteIcon";
 import VideoPlayer from "ui/VideoPlayer";
 
-import { setSearchParam } from "store/reducers/search";
+import { setSearchParamWithReset } from "store/reducers/search";
 
 import { paths } from "routing/paths";
 import { ClearLink } from "styles/styled";
@@ -125,7 +125,7 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
   const handleClose = () => setOpen(false);
 
   const handleCategoryClick = () => {
-    dispatch<any>(setSearchParam({
+    dispatch<any>(setSearchParamWithReset({
       category: movie.category.attributes["im:id"]
     }));
 
