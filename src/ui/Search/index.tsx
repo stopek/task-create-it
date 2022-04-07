@@ -7,7 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { TextField } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 
-import { setSearchParam } from "store/reducers/search";
+import { setSearchParamWithReset } from "store/reducers/search";
 import { getSearchParams } from "store/selectors/search";
 
 import { paths } from "routing/paths";
@@ -49,7 +49,7 @@ const Search = ({ expanded }: ISearch) => {
       return;
     }
 
-    dispatch<any>(setSearchParam({ phrase }));
+    dispatch<any>(setSearchParamWithReset({ phrase }));
     event.preventDefault();
     navigate(paths.MOVIES);
   };
