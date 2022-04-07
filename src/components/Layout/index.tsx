@@ -82,7 +82,7 @@ const Layout = ({ children, center, header, footer, state }: ILayout) => {
         </Content>
       ) : (
         <Content center={center}>
-          <Inside maxWidth="xl">{children}</Inside>
+          {center ? <Inside maxWidth="xl">{children}</Inside> : children}
         </Content>
       )}
 
