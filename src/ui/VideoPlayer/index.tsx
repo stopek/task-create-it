@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   position: relative;
-  padding-top: 56.25%
+  padding-top: 56.25%;
 
   video {
     position: absolute;

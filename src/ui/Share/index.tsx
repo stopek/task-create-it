@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 
 import IconButton from "@mui/material/IconButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
+import { ListItemIconProps } from "@mui/material/ListItemIcon/ListItemIcon";
 import { SvgIconTypeMap } from "@mui/material/SvgIcon/SvgIcon";
 
 export interface IShareItem {
@@ -9,11 +10,11 @@ export interface IShareItem {
   icon: ReactElement<SvgIconTypeMap, any>;
 }
 
-interface IShare {
+interface IShare extends ListItemIconProps {
   shareItems: IShareItem[];
 }
 
-const Share = ({ shareItems }: IShare) => (
+const Share = ({ shareItems, ...rest }: IShare) => (
   <>
     {shareItems.map((item, index) => (
       <a key={`menu-item-${index}`} href={item.url} target="_blank" rel="nofollow noreferrer">
@@ -24,6 +25,7 @@ const Share = ({ shareItems }: IShare) => (
             mr: "auto",
             justifyContent: "center",
           }}
+          {...rest}
         >
           <IconButton
             size="large"

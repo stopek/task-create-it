@@ -1,13 +1,14 @@
 import { Box, IconButton, List, ListItemIcon } from "@mui/material";
+import { ListItemIconProps } from "@mui/material/ListItemIcon/ListItemIcon";
 
 import { IMenuItem } from "routing/types";
 import { ClearLink } from "styles/styled";
 
-interface IHorizontalIconsMenu {
+interface IHorizontalIconsMenu extends ListItemIconProps {
   menuItems: IMenuItem[];
 }
 
-const HorizontalIconsMenu = ({ menuItems }: IHorizontalIconsMenu) => (
+const HorizontalIconsMenu = ({ menuItems, ...rest }: IHorizontalIconsMenu) => (
   <Box display="flex" gap={2} justifyContent="center">
     <List>
       {menuItems.map((item, index) => (
@@ -18,6 +19,7 @@ const HorizontalIconsMenu = ({ menuItems }: IHorizontalIconsMenu) => (
               mr: "auto",
               justifyContent: "center",
             }}
+            {...rest}
           >
             <IconButton
               size="large"

@@ -1,3 +1,5 @@
+import { AppBarProps } from "@mui/material/AppBar/AppBar";
+import { DrawerProps } from "@mui/material/Drawer/Drawer";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -22,6 +24,8 @@ import { AppBar, Drawer, DrawerHeader } from "./styled";
 
 interface IMenu {
   items: IMenuItem[];
+  drawerProps?: DrawerProps;
+  appBarProps?: AppBarProps;
 }
 
 const RightContent = styled.div`
@@ -34,7 +38,7 @@ const LogoWrapper = styled.div`
   font-size: 1.5rem;
 `;
 
-const Menu = ({ items }: IMenu) => {
+const Menu = ({ items, drawerProps, appBarProps }: IMenu) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const handleDrawerOpen = () => setOpen(true);
@@ -42,7 +46,7 @@ const Menu = ({ items }: IMenu) => {
 
   return (
     <>
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} {...appBarProps}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -68,7 +72,7 @@ const Menu = ({ items }: IMenu) => {
         </Toolbar>
       </AppBar>
 
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open} {...drawerProps}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />

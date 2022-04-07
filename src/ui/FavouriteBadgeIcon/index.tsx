@@ -1,6 +1,7 @@
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Badge } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
+import { IconButtonProps } from "@mui/material/IconButton/IconButton";
 
 import { getFavourites } from "store/selectors/favourite";
 
@@ -9,7 +10,7 @@ import { ClearLink } from "styles/styled";
 
 import { useAppSelector } from "hooks/redux";
 
-const FavouriteBadgeIcon = () => {
+const FavouriteBadgeIcon = ({ ...props }: IconButtonProps) => {
   const ids = useAppSelector(getFavourites);
 
   return (
@@ -18,6 +19,7 @@ const FavouriteBadgeIcon = () => {
         size="large"
         aria-label="search"
         color="inherit"
+        {...props}
       >
         <Badge badgeContent={ids.length} color="primary">
           <FavoriteIcon />
