@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   position: relative;
-  padding-top: 56.25%;
+  padding-top: 56.25%
 
   video {
     position: absolute;
@@ -18,7 +18,7 @@ interface IVideoPlayer extends ReactPlayerProps {
   filePath: string;
 }
 
-const VideoPlayer = ({ filePath }: IVideoPlayer) => (
+const VideoPlayer = ({ filePath, ...rest }: IVideoPlayer) => (
   <Wrapper>
     <ReactPlayer
       url={filePath}
@@ -26,6 +26,7 @@ const VideoPlayer = ({ filePath }: IVideoPlayer) => (
       height="100%"
       playing
       controls
+      {...rest}
     />
   </Wrapper>
 );

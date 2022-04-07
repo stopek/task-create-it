@@ -138,7 +138,10 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
         <DialogTitle>{movie["im:name"]?.label} - trailer</DialogTitle>
 
         <StyledDialogContent>
-          <VideoPlayer filePath={movie.link?.[1]?.attributes?.href} />
+          <VideoPlayer
+            filePath={movie.link?.[1]?.attributes?.href}
+            onEnded={() => setOpen(false)}
+          />
         </StyledDialogContent>
 
         <DialogActions>
