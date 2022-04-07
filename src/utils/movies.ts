@@ -76,7 +76,7 @@ const createMoviesFromIds = (movies: IMovie[], ids: string[]): IMovie[] => {
   });
 
   return response;
-}
+};
 
 export {
   filteredMovies,

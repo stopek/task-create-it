@@ -24,11 +24,10 @@ const theme = createTheme({
     },
     subtitle2: {
       fontSize: "1rem",
-      lineHeight: 2
+      lineHeight: 2,
     },
   },
   components: {
-
     MuiGrid: {
       defaultProps: {
         padding: 0,

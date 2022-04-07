@@ -46,7 +46,7 @@ export interface IMovie {
       currency: string;
     };
     label: string;
-  }
+  };
   "im:releaseDate": {
     attributes: {
       label: string;

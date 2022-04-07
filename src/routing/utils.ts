@@ -3,7 +3,7 @@ import { paths } from "./paths";
 type TParam = string | number | boolean | null | undefined | object;
 
 interface IParams extends Record<string, TParam> {
-  search?: Record<string, string | number | boolean>
+  search?: Record<string, string | number | boolean>;
 }
 
 const fillRoute = (routeName: paths, params: IParams = {}): string => {
@@ -22,7 +22,7 @@ const fillRoute = (routeName: paths, params: IParams = {}): string => {
     outputRoute +=
       "?" +
       Object.keys(params.search)
-        .map  (key => encodeURIComponent(key) + "=" + encodeURIComponent(params?.search?.[key] || ""))
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(params?.search?.[key] || ""))
         .join("&");
   }
 

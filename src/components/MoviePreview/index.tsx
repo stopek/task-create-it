@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
+import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
 import { Box, Divider, Grid, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
@@ -126,11 +126,11 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
 
   const handleCategoryClick = () => {
     dispatch<any>(setSearchParamWithReset({
-      category: movie.category.attributes["im:id"]
+      category: movie.category.attributes["im:id"],
     }));
 
     navigate(paths.MOVIES);
-  }
+  };
 
   return (
     <>

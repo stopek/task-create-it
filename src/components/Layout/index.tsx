@@ -13,8 +13,12 @@ import Footer from "../Footer";
 import Menu from "../Menu";
 
 const fadeIn = keyframes`
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 `;
 
 const Content = styled.div<{ center?: boolean, loader?: boolean }>`

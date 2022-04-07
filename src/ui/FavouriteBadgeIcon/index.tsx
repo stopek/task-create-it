@@ -26,7 +26,7 @@ const FavouriteBadgeIcon = ({ ...props }: IconButtonProps) => {
         </Badge>
       </IconButton>
     </ClearLink>
-  )
-}
+  );
+};
 
 export default FavouriteBadgeIcon;
