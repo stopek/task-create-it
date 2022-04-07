@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material";
-import { green } from "@mui/material/colors";
+import { green, grey } from "@mui/material/colors";
 
 import { primaryFont, secondaryFont } from "./configs";
 
@@ -8,6 +8,9 @@ const theme = createTheme({
     mode: "dark",
     primary: {
       main: green[700],
+    },
+    secondary: {
+      main: grey[600],
     },
   },
   typography: {

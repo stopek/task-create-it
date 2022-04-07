@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Container } from "@mui/material";
 
 import Error from "ui/Error";
 
@@ -41,6 +41,10 @@ const Content = styled.div<{ center?: boolean, loader?: boolean }>`
   `}
 `;
 
+const Inside = styled(Container)`
+  flex-grow: 1;
+`;
+
 export interface ILayout extends Partial<ILoadingState> {
   children: ReactNode;
   center?: boolean;
@@ -78,7 +82,7 @@ const Layout = ({ children, center, header, footer, state }: ILayout) => {
         </Content>
       ) : (
         <Content center={center}>
-          {children}
+          <Inside maxWidth="xl">{children}</Inside>
         </Content>
       )}
 
