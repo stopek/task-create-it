@@ -1,27 +1,58 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import { Typography } from "@mui/material";
+
 import MoviePreview from "components/MoviePreview";
+import MoviesListSimple from "components/MoviesListSimple";
 import NotFound from "components/NotFound";
 
 import MovieOverlay from "overlays/MovieOverlay";
 
 import { getTopMovies } from "store/selectors/apple";
 
+import { IMovie } from "types/apple";
+
 import { useAppSelector } from "hooks/redux";
-import { foundMovieById } from "utils/movies";
+import { filteredMovies, foundMovieById } from "utils/movies";
 
 const MovieContainer = () => {
   const { id } = useParams<{ id: string }>();
 
+  const [movie, setMovie] = useState<IMovie>();
+  const [similar, setSimilar] = useState<IMovie[]>([]);
+
   const movies = useAppSelector(getTopMovies);
-  const found = foundMovieById(movies, id);
+
+  useEffect(() => {
+    const found = foundMovieById(movies, id);
+    const categoryId = found?.category?.attributes["im:id"];
+    const foundSimilar = categoryId ? filteredMovies(movies, {
+      category: categoryId,
+    }) : [];
+
+    setMovie(found);
+    setSimilar(foundSimilar);
+  }, [id, movies]);
 
   return (
     <MovieOverlay>
-      {!found ? (
+      {!movie ? (
         <NotFound withoutBackButton />
       ) : (
-        <MoviePreview movie={found} />
+        <>
+          <MoviePreview movie={movie} />
+
+          {similar.length > 0 && (
+            <>
+              <Typography variant="h5" mt={5} mb={2}>
+                Similar movies
+              </Typography>
+
+              <MoviesListSimple movies={similar} />
+            </>
+          )}
+        </>
       )}
     </MovieOverlay>
   );

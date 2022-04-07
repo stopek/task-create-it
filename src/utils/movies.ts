@@ -4,27 +4,27 @@ import { ISearchState } from "store/reducers/search";
 
 import { IMovie } from "types/apple";
 
-const filteredMovies = (list: IMovie[], fields: ISearchState["fields"]): IMovie[] => {
+const filteredMovies = (list: IMovie[], fields: Partial<ISearchState["fields"]>): IMovie[] => {
   let localMovies = [...list];
   const { phrase, category, price, artist } = fields;
 
-  if (phrase.length > 0) {
+  if (!!phrase?.length) {
     localMovies = localMovies.filter(movie => movie["im:name"].label.toLowerCase().includes(phrase.toLowerCase()));
   }
 
-  if (category.length > 0) {
+  if (!!category?.length) {
     localMovies = localMovies.filter(movie => movie.category.attributes["im:id"] === category);
   }
 
-  if (artist.length > 0) {
+  if (!!artist?.length) {
     localMovies = localMovies.filter(movie => movie["im:artist"].label === artist);
   }
 
-  if (price[0] > 0 || price[1] > 0) {
+  if (!!price?.[0] || !!price?.[1]) {
     localMovies = localMovies.filter(movie => {
       const moviePrice = parseFloat(movie["im:price"].attributes.amount);
 
-      return moviePrice >= price[0] && moviePrice <= price[1];
+      return moviePrice >= price?.[0] && moviePrice <= price?.[1];
     });
   }
 
