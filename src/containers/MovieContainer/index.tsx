@@ -24,7 +24,6 @@ const MovieContainer = () => {
 
   const movies = useAppSelector(getTopMovies);
 
-
   useEffect(() => {
     const found = foundMovieById(movies, id);
     const categoryId = found?.category?.attributes["im:id"];
@@ -34,7 +33,7 @@ const MovieContainer = () => {
 
     setMovie(found);
     setSimilar(foundSimilar);
-  }, [id]);
+  }, [id, movies]);
 
   return (
     <MovieOverlay>
