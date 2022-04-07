@@ -29,7 +29,7 @@ const Share = ({ shareItems, ...rest }: IShare) => (
         >
           <IconButton
             size="large"
-            color="inherit"
+            color="secondary"
           >
             {item.icon}
           </IconButton>

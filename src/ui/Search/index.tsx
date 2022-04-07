@@ -6,6 +6,7 @@ import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
 import { TextField } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
+import { styled as style } from "@mui/material/styles";
 
 import { setSearchParamWithReset } from "store/reducers/search";
 import { getSearchParams } from "store/selectors/search";
@@ -14,18 +15,21 @@ import { paths } from "routing/paths";
 
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 
-const StyledTextField = styled(TextField)`
+const StyledTextField = style(TextField)`
   .MuiInputBase-root {
     border-radius: 25px;
   }
 
-  width: 50vw;
+  ${props => props.theme.breakpoints.up("md")} {
+    width: 30vw;
+  }
 `;
 
 const Container = styled.div`
   display: flex;
   gap: 15px;
   align-items: center;
+  justify-content: center;
 `;
 
 interface ISearch {
@@ -72,6 +76,7 @@ const Search = ({ expanded }: ISearch) => {
           InputProps={{
             disableUnderline: true,
             onKeyDown: event => handleSubmit(event),
+            autoComplete: "off",
           }}
         />
       )}
