@@ -11,9 +11,9 @@ import { styled as style } from "@mui/material/styles";
 import { setSearchParamWithReset } from "store/reducers/search";
 import { getSearchParams } from "store/selectors/search";
 
-import { paths } from "routing/paths";
-
 import { useAppDispatch, useAppSelector } from "hooks/redux";
+
+import { paths } from "routing/paths";
 
 const StyledTextField = style(TextField)`
   .MuiInputBase-root {

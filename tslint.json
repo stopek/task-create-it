@@ -59,14 +59,19 @@
             "order": 20
           },
           {
-            "name": "overlays",
-            "match": "^overlays/",
+            "name": "containers",
+            "match": "^(containers|overlays)/",
             "order": 30
           },
           {
-            "name": "store",
-            "match": "^store/",
+            "name": "store&api",
+            "match": "^(store|services)/",
             "order": 40
+          },
+          {
+            "name": "functionality",
+            "match": "^(utils|classes|hooks)/",
+            "order": 50
           },
           {
             "name": "others",

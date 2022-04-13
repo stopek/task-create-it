@@ -6,8 +6,6 @@ import storage from "redux-persist/lib/storage";
 
 import rootReducer from "store/reducers";
 
-import favouriteListener from "./listeners/favouriteListener";
-
 import { isProduction } from "utils/envirionment";
 
 const ignoreActions = {
@@ -38,8 +36,6 @@ const persistor = persistStore(store);
 
 type RootState = ReturnType<typeof store.getState>
 type AppDispatch = typeof store.dispatch
-
-store.subscribe(favouriteListener);
 
 export {
   persistor,

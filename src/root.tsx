@@ -6,6 +6,8 @@ import { ThemeProvider } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { StyledEngineProvider } from "@mui/material/styles";
 
+import "store/listeners";
+
 import Router from "routing/components/Router";
 import { routes } from "routing/routes";
 import theme from "styles/theme";

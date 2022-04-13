@@ -11,10 +11,10 @@ import MovieOverlay from "overlays/MovieOverlay";
 
 import { getTopMovies } from "store/selectors/apple";
 
-import { IMovie } from "types/apple";
-
 import { useAppSelector } from "hooks/redux";
 import { filteredMovies, foundMovieById } from "utils/movies";
+
+import { IMovie } from "types/apple";
 
 const MovieContainer = () => {
   const { id } = useParams<{ id: string }>();

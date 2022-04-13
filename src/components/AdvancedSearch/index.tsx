@@ -10,11 +10,11 @@ import Select from "ui/Select";
 import { ISearchState, setSearchParam } from "store/reducers/search";
 import { getSearchParams } from "store/selectors/search";
 
-import { paths } from "routing/paths";
-import { IMovie } from "types/apple";
-
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { createArtist, createCategories } from "utils/movies";
+
+import { paths } from "routing/paths";
+import { IMovie } from "types/apple";
 
 interface IAdvancedSearch {
   movies: IMovie[];
