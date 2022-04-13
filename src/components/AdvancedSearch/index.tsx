@@ -1,18 +1,17 @@
-import { FormEvent, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
 import SearchIcon from "@mui/icons-material/Search";
 import { Button, Grid, Slider, TextField, Typography } from "@mui/material";
 
-import Select from "ui/Select";
+import { useAppDispatch, useAppSelector } from "hooks/redux";
+import { FormEvent, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { paths } from "routing/paths";
 
 import { ISearchState, setSearchParam } from "store/reducers/search";
 import { getSearchParams } from "store/selectors/search";
-
-import { paths } from "routing/paths";
 import { IMovie } from "types/apple";
 
-import { useAppDispatch, useAppSelector } from "hooks/redux";
+import Select from "ui/Select";
 import { createArtist, createCategories } from "utils/movies";
 
 interface IAdvancedSearch {
@@ -48,8 +47,8 @@ const AdvancedSearch = ({ movies }: IAdvancedSearch) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Grid container spacing={2}>
-        <Grid item md={3} xs={12}>
+      <Grid container spacing={{ xs: 1, sm: 2 }}>
+        <Grid item md={3} sm={6} xs={12}>
           <TextField
             id="search-basic"
             label="Type what would you watch?"
@@ -60,7 +59,7 @@ const AdvancedSearch = ({ movies }: IAdvancedSearch) => {
           />
         </Grid>
 
-        <Grid item md={3} xs={12}>
+        <Grid item md={3} sm={6} xs={12}>
           <Select
             id="category"
             label="Category"
@@ -71,7 +70,7 @@ const AdvancedSearch = ({ movies }: IAdvancedSearch) => {
           />
         </Grid>
 
-        <Grid item md={3} xs={12}>
+        <Grid item md={3} sm={6} xs={12}>
           <Typography id="input-slider" gutterBottom>
             Price
           </Typography>
@@ -87,7 +86,7 @@ const AdvancedSearch = ({ movies }: IAdvancedSearch) => {
           />
         </Grid>
 
-        <Grid item md={3} xs={12}>
+        <Grid item md={3} sm={6} xs={12}>
           <Select
             id="artist"
             label="Artist"
