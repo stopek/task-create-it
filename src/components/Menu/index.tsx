@@ -54,7 +54,7 @@ const Menu = ({ items, drawerProps, appBarProps }: IMenu) => {
             onClick={handleDrawerOpen}
             edge="start"
             sx={{
-              marginRight: 5,
+              marginRight: 2,
               ...(open && { display: "none" }),
             }}
           >

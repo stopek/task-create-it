@@ -17,14 +17,14 @@ const fadeIn = keyframes`
   from {
     opacity: 0;
   }
-  
+
   to {
     opacity: 1;
   }
 `;
 
 const Content = styled(Box)<{ center?: boolean, loader?: boolean }>`
-  padding: 80px 20px 35px 80px;
+  padding: 70px 20px 35px 80px;
 
   ${props => props.center ? css`
     width: 100%;
@@ -42,7 +42,7 @@ const Content = styled(Box)<{ center?: boolean, loader?: boolean }>`
   ${props => props.theme.breakpoints.down("sm")} {
     padding: 60px 10px 35px 60px;
   }
-  
+
   ${props => !props.loader && css`
     animation: ${fadeIn} .5s;
   `}
