@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material";
+import { createTheme, responsiveFontSizes } from "@mui/material";
 import { green, grey } from "@mui/material/colors";
 
 import { primaryFont, secondaryFont } from "./configs";
@@ -39,4 +39,4 @@ const theme = createTheme({
   },
 });
 
-export default theme;
+export default responsiveFontSizes(theme);
