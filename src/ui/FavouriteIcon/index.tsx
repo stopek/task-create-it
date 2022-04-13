@@ -17,10 +17,12 @@ interface IFavouriteIcon extends IconButtonProps {
 
 const FavouriteIcon = ({ id, ...rest }: IFavouriteIcon) => {
   const dispatch = useAppDispatch();
+
   const ids = useAppSelector(getFavourites);
   const movies = useAppSelector(getTopMovies);
 
   const exists = existsInFavourites(createMoviesFromIds(movies, ids), id);
+
   const handleLikeClick = (event: MouseEvent<HTMLElement>) => {
     event.preventDefault();
 
