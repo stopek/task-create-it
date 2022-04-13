@@ -26,7 +26,7 @@ const Motto = styled.span`
 `;
 
 const LogoLink = style(ClearLink)`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   height: 100%;
   font-size: 100%;
@@ -37,16 +37,22 @@ const LogoLink = style(ClearLink)`
   }
 `;
 
-const Logo = () => (
+interface ILogo {
+  withoutMotto?: boolean;
+}
+
+const Logo = ({ withoutMotto }: ILogo) => (
   <LogoLink to={paths.HOMEPAGE}>
     <ProjectName>
       <span>
         PURPUR<span className="neon-text">PRIME</span>
       </span>
 
-      <Motto>
-        .be prime like PurPur PRIME
-      </Motto>
+      {!withoutMotto && (
+        <Motto>
+          .be prime like PurPur PRIME
+        </Motto>
+      )}
     </ProjectName>
   </LogoLink>
 );
