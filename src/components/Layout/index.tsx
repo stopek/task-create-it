@@ -25,7 +25,7 @@ const fadeIn = keyframes`
 
 const Content = styled(Box)<{ center?: boolean, loader?: boolean }>`
   padding: 70px 20px 35px 80px;
-  
+
   ${props => props.theme.breakpoints.down("sm")} {
     padding: 60px 5px 35px 62px;
   }
