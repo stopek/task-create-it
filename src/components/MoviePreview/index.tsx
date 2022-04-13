@@ -1,3 +1,7 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
 import { Box, Divider, Grid, Hidden, Typography } from "@mui/material";
@@ -10,19 +14,16 @@ import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import { styled as style } from "@mui/material/styles";
 
-import { useAppDispatch } from "hooks/redux";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-import { paths } from "routing/paths";
-
-import { setSearchParamWithReset } from "store/reducers/search";
-import styled from "styled-components";
-import { ClearLink } from "styles/styled";
-import { IMovie } from "types/apple";
-
 import FavouriteIcon from "ui/FavouriteIcon";
 import VideoPlayer from "ui/VideoPlayer";
+
+import { setSearchParamWithReset } from "store/reducers/search";
+
+import { useAppDispatch } from "hooks/redux";
+
+import { paths } from "routing/paths";
+import { ClearLink } from "styles/styled";
+import { IMovie } from "types/apple";
 
 interface IMoviePreview {
   movie: IMovie;

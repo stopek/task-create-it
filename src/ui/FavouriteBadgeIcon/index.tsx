@@ -5,10 +5,10 @@ import { IconButtonProps } from "@mui/material/IconButton/IconButton";
 
 import { getFavourites } from "store/selectors/favourite";
 
+import { useAppSelector } from "hooks/redux";
+
 import { paths } from "routing/paths";
 import { ClearLink } from "styles/styled";
-
-import { useAppSelector } from "hooks/redux";
 
 const FavouriteBadgeIcon = ({ ...props }: IconButtonProps) => {
   const ids = useAppSelector(getFavourites);
