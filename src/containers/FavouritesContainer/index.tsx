@@ -20,7 +20,7 @@ const FavouritesContainer = () => {
 
   return (
     <MovieOverlay>
-      {!ids.length && (
+      {0 === ids.length && (
         <Error
           description="Add some movie to your favourites list"
           message="PurPur likes you but you don't like our movies?"
@@ -28,7 +28,7 @@ const FavouritesContainer = () => {
         />
       )}
 
-      {ids.length && (
+      {0 < ids.length && (
         <>
           <Typography variant="h5" component="h1" mb={2} mt={1}>
             Your favourites movies
