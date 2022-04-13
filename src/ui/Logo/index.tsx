@@ -33,7 +33,7 @@ const LogoLink = style(ClearLink)`
 
   ${props => props.theme.breakpoints.down("sm")} {
     transform: scale(0.8);
-    transform-origin: bottom center;
+    transform-origin: inherit;
   }
 `;
 

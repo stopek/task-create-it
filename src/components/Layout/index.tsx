@@ -32,6 +32,7 @@ const Content = styled(Box)<{ center?: boolean, loader?: boolean }>`
     align-items: center;
     justify-content: center;
     display: flex;
+    padding: 0;
   ` : css`
     left: 0;
     right: 0;

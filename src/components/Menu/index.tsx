@@ -36,6 +36,7 @@ const RightContent = styled.div`
 
 const LogoWrapper = styled.div`
   font-size: 1.5rem;
+  transform-origin: left center;
 `;
 
 const Menu = ({ items, drawerProps, appBarProps }: IMenu) => {
