@@ -29,7 +29,7 @@ const MovieContainer = () => {
     const categoryId = found?.category?.attributes["im:id"];
     const foundSimilar = categoryId ? filteredMovies(movies, {
       category: categoryId,
-    }) : [];
+    }).filter(item => item.id.attributes["im:id"] !== id) : [];
 
     setMovie(found);
     setSimilar(foundSimilar);
