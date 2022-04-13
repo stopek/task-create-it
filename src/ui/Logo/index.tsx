@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import { styled as style } from "@mui/material/styles";
 
 import { paths } from "routing/paths";
+import styled from "styled-components";
 import { primaryFont, secondaryFont } from "styles/configs";
 import { ClearLink } from "styles/styled";
 
@@ -23,10 +24,16 @@ const Motto = styled.span`
   font-family: ${secondaryFont};
 `;
 
-const LogoLink = styled(ClearLink)`
+const LogoLink = style(ClearLink)`
   display: flex;
   align-items: center;
   height: 100%;
+  font-size: 100%;
+
+  ${props => props.theme.breakpoints.down("sm")} {
+    transform: scale(0.8);
+    transform-origin: bottom center;
+  }
 `;
 
 const Logo = () => (
