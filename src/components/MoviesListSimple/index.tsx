@@ -12,7 +12,7 @@ interface IMoviesListSimple extends GridProps {
 const MoviesListSimple = ({ movies, ...rest }: IMoviesListSimple) => (
   <Grid container spacing={4} {...rest}>
     {movies.map(movie => (
-      <Grid item xs={12} md={4} lg={3} xl={2} key={`movie-${movie["im:name"].label}`}>
+      <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={`movie-${movie["im:name"].label}`}>
         <MovieCard movie={movie} />
       </Grid>
     ))}

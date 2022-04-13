@@ -16,6 +16,7 @@ import { filteredMovies } from "utils/movies";
 const MoviesContainer = () => {
   const fields = useAppSelector(getSearchParams);
   const movies = useAppSelector(getTopMovies);
+
   const filtered = filteredMovies(movies, fields);
 
   return (
