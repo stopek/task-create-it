@@ -6,16 +6,16 @@ class FavouritesManager {
   private static cookieName = "favourites-list";
   private static separatorChar = ",";
 
-  static checkList = (favouritesList: TMoviesIds) => favouritesList.filter(item => !!item);
+  static check = (favouritesList: TMoviesIds) => favouritesList.filter(item => !!item);
 
   static save = (favouritesList: TMoviesIds) => {
-    Cookies.set(this.cookieName, this.checkList(favouritesList).join(this.separatorChar));
+    Cookies.set(this.cookieName, this.check(favouritesList).join(this.separatorChar));
   };
 
   static load = () => {
     const current = Cookies.get(this.cookieName);
     if (typeof current === "string") {
-      return this.checkList(current.split(this.separatorChar));
+      return this.check(current.split(this.separatorChar));
     }
 
     return [];
