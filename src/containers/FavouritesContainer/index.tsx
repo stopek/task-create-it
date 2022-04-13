@@ -1,3 +1,5 @@
+import { Typography } from "@mui/material";
+
 import MoviesListSimple from "components/MoviesListSimple";
 
 import Error from "ui/Error";
@@ -26,7 +28,14 @@ const FavouritesContainer = () => {
         />
       )}
 
-      <MoviesListSimple movies={favouritesMovies} />
+      {ids.length && (
+        <>
+          <Typography variant="h5" component="h1" mb={2} mt={1}>
+            Your favourites movies
+          </Typography>
+          <MoviesListSimple movies={favouritesMovies} />
+        </>
+      )}
     </MovieOverlay>
   );
 };
