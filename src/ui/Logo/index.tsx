@@ -1,7 +1,8 @@
+import styled from "styled-components";
+
 import { styled as style } from "@mui/material/styles";
 
 import { paths } from "routing/paths";
-import styled from "styled-components";
 import { primaryFont, secondaryFont } from "styles/configs";
 import { ClearLink } from "styles/styled";
 
