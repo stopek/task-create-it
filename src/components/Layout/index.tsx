@@ -1,7 +1,8 @@
 import { ReactNode, useEffect, useState } from "react";
-import styled, { css, keyframes } from "styled-components";
 
 import { CircularProgress, Container } from "@mui/material";
+import { css, keyframes, styled } from "@mui/material/styles";
+import { Box } from "@mui/system";
 
 import Error from "ui/Error";
 
@@ -16,12 +17,15 @@ const fadeIn = keyframes`
   from {
     opacity: 0;
   }
+  
   to {
     opacity: 1;
   }
 `;
 
-const Content = styled.div<{ center?: boolean, loader?: boolean }>`
+const Content = styled(Box)<{ center?: boolean, loader?: boolean }>`
+  padding: 80px 20px 35px 80px;
+
   ${props => props.center ? css`
     width: 100%;
     height: 100vh;
@@ -29,13 +33,16 @@ const Content = styled.div<{ center?: boolean, loader?: boolean }>`
     justify-content: center;
     display: flex;
   ` : css`
-    padding: 32px 0 75px 0;
+    left: 0;
+    right: 0;
+    top: 0;
     position: absolute;
-    left: 85px;
-    right: 20px;
-    top: 55px;
   `}
 
+  ${props => props.theme.breakpoints.down("sm")} {
+    padding: 60px 10px 35px 60px;
+  }
+  
   ${props => !props.loader && css`
     animation: ${fadeIn} .5s;
   `}

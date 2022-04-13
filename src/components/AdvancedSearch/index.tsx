@@ -1,17 +1,19 @@
+import { FormEvent, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
 import SearchIcon from "@mui/icons-material/Search";
 import { Button, Grid, Slider, TextField, Typography } from "@mui/material";
 
-import { useAppDispatch, useAppSelector } from "hooks/redux";
-import { FormEvent, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-import { paths } from "routing/paths";
+import Select from "ui/Select";
 
 import { ISearchState, setSearchParam } from "store/reducers/search";
 import { getSearchParams } from "store/selectors/search";
+
+import { paths } from "routing/paths";
 import { IMovie } from "types/apple";
 
-import Select from "ui/Select";
+import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { createArtist, createCategories } from "utils/movies";
 
 interface IAdvancedSearch {
@@ -19,6 +21,11 @@ interface IAdvancedSearch {
 }
 
 type TFields = ISearchState["fields"];
+
+const SearchForm = styled.form`
+  position: relative;
+  z-index: 1200;
+`;
 
 const AdvancedSearch = ({ movies }: IAdvancedSearch) => {
   const navigate = useNavigate();
@@ -46,7 +53,7 @@ const AdvancedSearch = ({ movies }: IAdvancedSearch) => {
   }, [fields]);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <SearchForm onSubmit={handleSubmit}>
       <Grid container spacing={{ xs: 1, sm: 2 }}>
         <Grid item md={3} sm={6} xs={12}>
           <TextField
@@ -103,7 +110,7 @@ const AdvancedSearch = ({ movies }: IAdvancedSearch) => {
           </Button>
         </Grid>
       </Grid>
-    </form>
+    </SearchForm>
   );
 };
 
