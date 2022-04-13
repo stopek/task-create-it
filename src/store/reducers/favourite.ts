@@ -1,11 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import FavouritesManager from "classes/FavouritesManager";
+
+export type TMoviesIds = IFavouriteState["movies"];
 
 export interface IFavouriteState {
   movies: string[];
 }
 
 const initialState: IFavouriteState = {
-  movies: [],
+  movies: FavouritesManager.load(),
 };
 
 const favouriteSlice = createSlice({

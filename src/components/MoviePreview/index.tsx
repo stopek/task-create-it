@@ -1,10 +1,6 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
-import { Box, Divider, Grid, Typography } from "@mui/material";
+import { Box, Divider, Grid, Hidden, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import CardMedia from "@mui/material/CardMedia";
 import Dialog from "@mui/material/Dialog";
@@ -12,17 +8,21 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
+import { styled as style } from "@mui/material/styles";
 
-import FavouriteIcon from "ui/FavouriteIcon";
-import VideoPlayer from "ui/VideoPlayer";
-
-import { setSearchParamWithReset } from "store/reducers/search";
+import { useAppDispatch } from "hooks/redux";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { paths } from "routing/paths";
+
+import { setSearchParamWithReset } from "store/reducers/search";
+import styled from "styled-components";
 import { ClearLink } from "styles/styled";
 import { IMovie } from "types/apple";
 
-import { useAppDispatch } from "hooks/redux";
+import FavouriteIcon from "ui/FavouriteIcon";
+import VideoPlayer from "ui/VideoPlayer";
 
 interface IMoviePreview {
   movie: IMovie;
@@ -31,7 +31,7 @@ interface IMoviePreview {
 const TopContainer = styled.div`
   display: flex;
   gap: 15px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
 `;
 
@@ -41,10 +41,12 @@ const Container = styled.div`
   gap: 15px;
 `;
 
-const RightContent = styled.div`
+const RightContent = style("div")`
   display: flex;
   gap: 15px;
+  ${props => props.theme.breakpoints.up("md")} {
   margin-left: auto;
+  }
 `;
 
 const Price = styled.div`
@@ -103,10 +105,13 @@ const CategoryName = styled.span`
   cursor: pointer;
 `;
 
-const PreviewContainer = styled.div`
-  width: 100%;
+const PreviewContainer = style("div")`
   max-width: 900px;
   margin-left: 65px;
+
+  ${props => props.theme.breakpoints.down("md")} {
+    margin-left: 0;
+  }
 `;
 
 const MoviePreview = ({ movie }: IMoviePreview) => {
@@ -152,18 +157,20 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
       <Container>
         <TopContainer>
           <Box display="flex" gap={2} alignItems="center">
-            <Box>
-              <ClearLink to={paths.MOVIES}>
-                <IconButton
-                  size="large"
-                  aria-label="search"
-                  color="inherit"
-                  type="submit"
-                >
-                  <ChevronLeftRoundedIcon />
-                </IconButton>
-              </ClearLink>
-            </Box>
+            <Hidden mdDown>
+              <Box>
+                <ClearLink to={paths.MOVIES}>
+                  <IconButton
+                    size="large"
+                    aria-label="search"
+                    color="inherit"
+                    type="submit"
+                  >
+                    <ChevronLeftRoundedIcon />
+                  </IconButton>
+                </ClearLink>
+              </Box>
+            </Hidden>
 
             <Box>
               <Typography variant="h4">
@@ -198,7 +205,7 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
 
         <PreviewContainer>
           <Grid container spacing={2}>
-            <Grid item md={3} xs={12}>
+            <Grid item md={3} sm={6} xs={12}>
               <ImageContent>
                 <Hover onClick={handleOpen}>
                   <PlayIcon />
@@ -212,7 +219,7 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
               </ImageContent>
             </Grid>
 
-            <Grid item md={9} xs={12}>
+            <Grid item md={9} sm={6} xs={12}>
               <Box display="flex" rowGap={2} flexDirection="column">
                 <Typography variant="subtitle2">
                   {movie.summary.label}

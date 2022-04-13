@@ -36,6 +36,7 @@ const RightContent = styled.div`
 
 const LogoWrapper = styled.div`
   font-size: 1.5rem;
+  transform-origin: left center;
 `;
 
 const Menu = ({ items, drawerProps, appBarProps }: IMenu) => {
@@ -54,7 +55,7 @@ const Menu = ({ items, drawerProps, appBarProps }: IMenu) => {
             onClick={handleDrawerOpen}
             edge="start"
             sx={{
-              marginRight: 5,
+              marginRight: 2,
               ...(open && { display: "none" }),
             }}
           >

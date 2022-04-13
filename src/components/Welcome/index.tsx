@@ -25,6 +25,7 @@ const ShareContainer = styled(Box)`
 const LogoWrapper = styled(Box)`
   font-size: 3rem;
   text-align: center;
+  transform-origin: bottom center;
 `;
 
 const Welcome = ({ menuItems, ...rest }: IWelcome) => (
