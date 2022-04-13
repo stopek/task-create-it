@@ -25,6 +25,10 @@ const fadeIn = keyframes`
 
 const Content = styled(Box)<{ center?: boolean, loader?: boolean }>`
   padding: 70px 20px 35px 80px;
+  
+  ${props => props.theme.breakpoints.down("sm")} {
+    padding: 60px 5px 35px 62px;
+  }
 
   ${props => props.center ? css`
     width: 100%;
@@ -32,17 +36,13 @@ const Content = styled(Box)<{ center?: boolean, loader?: boolean }>`
     align-items: center;
     justify-content: center;
     display: flex;
-    padding: 0;
+    padding: 0 !important;
   ` : css`
     left: 0;
     right: 0;
     top: 0;
     position: absolute;
   `}
-
-  ${props => props.theme.breakpoints.down("sm")} {
-    padding: 60px 10px 35px 60px;
-  }
 
   ${props => !props.loader && css`
     animation: ${fadeIn} .5s;
