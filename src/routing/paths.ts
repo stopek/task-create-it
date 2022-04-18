@@ -3,4 +3,5 @@ export enum paths {
   MOVIES = "/movies",
   MOVIE = "/movie/:id",
   FAVOURITES = "/favourites",
+  CINEMA = "/cinema",
 }

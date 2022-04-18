@@ -9,7 +9,7 @@ interface IHorizontalIconsMenu extends ListItemIconProps {
 }
 
 const HorizontalIconsMenu = ({ menuItems, ...rest }: IHorizontalIconsMenu) => (
-  <Box display="flex" gap={2} justifyContent="center">
+  <Box display="flex" gap={2} justifyContent="center" component="div">
     <List disablePadding>
       {menuItems.map((item, index) => (
         <ClearLink key={`menu-item-${index}`} to={item.path}>

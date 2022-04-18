@@ -157,9 +157,9 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
 
       <Container>
         <TopContainer>
-          <Box display="flex" gap={2} alignItems="center">
+          <Box display="flex" gap={2} alignItems="center" component="div">
             <Hidden mdDown>
-              <Box>
+              <Box component="div">
                 <ClearLink to={paths.MOVIES}>
                   <IconButton
                     size="large"
@@ -173,7 +173,7 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
               </Box>
             </Hidden>
 
-            <Box>
+            <Box component="div">
               <Typography variant="h4">
                 {movie.title.label}
                 <Category>
@@ -184,7 +184,7 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
               </Typography>
             </Box>
 
-            <Box>
+            <Box component="div">
               <FavouriteIcon id={movie.id.attributes["im:id"]} />
             </Box>
           </Box>
@@ -221,7 +221,7 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
             </Grid>
 
             <Grid item md={9} sm={6} xs={12}>
-              <Box display="flex" rowGap={2} flexDirection="column">
+              <Box display="flex" rowGap={2} flexDirection="column" component="div">
                 <Typography variant="subtitle2">
                   {movie.summary.label}
                 </Typography>

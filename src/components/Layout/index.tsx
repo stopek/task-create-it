@@ -27,7 +27,7 @@ const Content = styled(Box)<{ center?: boolean, loader?: boolean }>`
   padding: 70px 20px 35px 80px;
 
   ${props => props.theme.breakpoints.down("sm")} {
-    padding: 60px 5px 35px 62px;
+    padding: 60px 10px 35px 62px;
   }
 
   ${props => props.center ? css`
@@ -77,7 +77,7 @@ const Layout = ({ children, center, header, footer, state }: ILayout) => {
   }, [isLoading]);
 
   return (state?.error || state?.crash) ? (
-    <Content center={true}>
+    <Content center={true} component="div">
       <Error />
     </Content>
   ) : (

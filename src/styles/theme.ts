@@ -1,13 +1,16 @@
 import { createTheme, responsiveFontSizes } from "@mui/material";
-import { green, grey } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
 
-import { primaryFont, secondaryFont } from "./configs";
+import { colors, primaryFont, secondaryFont } from "./configs";
 
 const theme = createTheme({
   palette: {
     mode: "dark",
+    background: {
+      default: colors.background,
+    },
     primary: {
-      main: green[700],
+      main: colors.theme,
     },
     secondary: {
       main: grey[600],

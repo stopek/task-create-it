@@ -1,4 +1,4 @@
-  {
+{
   "compilerOptions": {
     "types": [
       "react/next",
@@ -38,6 +38,7 @@
     "noEmit": true
   },
   "include": [
-    "src"
+    "src",
+    "public"
   ]
 }
