@@ -1,5 +1,7 @@
-import { Box, IconButton, List, ListItemIcon } from "@mui/material";
+import { IconButton, List, ListItemIcon } from "@mui/material";
 import { ListItemIconProps } from "@mui/material/ListItemIcon/ListItemIcon";
+
+import Box from "override/mui/Box";
 
 import { IMenuItem } from "routing/types";
 import { ClearLink } from "styles/styled";

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import { Box } from "@mui/material";
-import { BoxProps } from "@mui/material/Box/Box";
+import { BoxProps } from "@mui/system";
 
-import HorizontalIconsMenu from "ui/HorizontalIconsMenu";
+import Box from "override/mui/Box";
+import HorizontalMenu from "ui/HorizontalMenu";
 import Logo from "ui/Logo";
 import Search from "ui/Search";
 import Share from "ui/Share";
@@ -29,8 +29,8 @@ const LogoWrapper = styled(Box)`
 `;
 
 const Welcome = ({ menuItems, ...rest }: IWelcome) => (
-  <Box display="flex" flexDirection="column" gap={3} {...rest}>
-    <LogoWrapper display="flex" flexDirection="column" alignItems="center">
+  <Box {...rest} display="flex" flexDirection="column" gap={3}>
+    <LogoWrapper display="flex" flexDirection="column" alignItems="center" component="div">
       <Logo />
     </LogoWrapper>
 
@@ -38,9 +38,9 @@ const Welcome = ({ menuItems, ...rest }: IWelcome) => (
       <Search expanded />
     </Box>
 
-    <HorizontalIconsMenu menuItems={menuItems} />
+    <HorizontalMenu menuItems={menuItems} />
 
-    <ShareContainer>
+    <ShareContainer component="div">
       <Share shareItems={shareItems} />
     </ShareContainer>
   </Box>

@@ -2,8 +2,8 @@ import { ReactNode, useEffect, useState } from "react";
 
 import { CircularProgress, Container } from "@mui/material";
 import { css, keyframes, styled } from "@mui/material/styles";
-import { Box } from "@mui/system";
 
+import Box from "override/mui/Box";
 import Error from "ui/Error";
 
 import { ILoadingState } from "store/reducers/types";
@@ -27,7 +27,7 @@ const Content = styled(Box)<{ center?: boolean, loader?: boolean }>`
   padding: 70px 20px 35px 80px;
 
   ${props => props.theme.breakpoints.down("sm")} {
-    padding: 60px 5px 35px 62px;
+    padding: 60px 10px 35px 62px;
   }
 
   ${props => props.center ? css`

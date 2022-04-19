@@ -1,8 +1,7 @@
-import { Box } from "@mui/material";
-
 import AdvancedSearch from "components/AdvancedSearch";
 import MoviesListSimple from "components/MoviesListSimple";
 
+import Box from "override/mui/Box";
 import Error from "ui/Error";
 
 import MovieOverlay from "overlays/MovieOverlay";

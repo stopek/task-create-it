@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
-import { Box, Divider, Grid, Hidden, Typography } from "@mui/material";
+import { Divider, Grid, Hidden, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import CardMedia from "@mui/material/CardMedia";
 import Dialog from "@mui/material/Dialog";
@@ -14,6 +14,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import { styled as style } from "@mui/material/styles";
 
+import Box from "override/mui/Box";
 import FavouriteIcon from "ui/FavouriteIcon";
 import VideoPlayer from "ui/VideoPlayer";
 

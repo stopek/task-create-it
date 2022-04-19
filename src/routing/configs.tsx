@@ -2,6 +2,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import MovieFilterRoundedIcon from "@mui/icons-material/MovieFilterRounded";
+import WeekendRoundedIcon from '@mui/icons-material/WeekendRounded';
 
 import { IShareItem } from "ui/Share";
 
@@ -19,6 +20,11 @@ const menuItems: IMenuItem[] = [
     icon: <MovieFilterRoundedIcon />,
     path: paths.MOVIES,
     title: "Movies",
+  },
+  {
+    icon: <WeekendRoundedIcon />,
+    path: paths.CINEMA,
+    title: "Cinema",
   },
 ];
 

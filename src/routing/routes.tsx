@@ -1,3 +1,4 @@
+import CinemaContainer from "containers/CinemaContainer";
 import FavouritesContainer from "containers/FavouritesContainer";
 import HomeContainer from "containers/HomeContainer";
 import MovieContainer from "containers/MovieContainer";
@@ -11,4 +12,5 @@ export const routes: TRouteItem[] = [
   { path: paths.MOVIES, element: <MoviesContainer /> },
   { path: paths.MOVIE, element: <MovieContainer /> },
   { path: paths.FAVOURITES, element: <FavouritesContainer /> },
+  { path: paths.CINEMA, element: <CinemaContainer /> },
 ];
