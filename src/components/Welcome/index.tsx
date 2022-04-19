@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-import { Box, BoxProps } from "@mui/system";
+import { BoxProps } from "@mui/system";
 
+import Box from "override/mui/Box";
 import HorizontalMenu from "ui/HorizontalMenu";
 import Logo from "ui/Logo";
 import Search from "ui/Search";
@@ -28,12 +29,12 @@ const LogoWrapper = styled(Box)`
 `;
 
 const Welcome = ({ menuItems, ...rest }: IWelcome) => (
-  <Box {...rest} display="flex" flexDirection="column" gap={3} component="div">
+  <Box {...rest} display="flex" flexDirection="column" gap={3}>
     <LogoWrapper display="flex" flexDirection="column" alignItems="center" component="div">
       <Logo />
     </LogoWrapper>
 
-    <Box component="div">
+    <Box>
       <Search expanded />
     </Box>
 

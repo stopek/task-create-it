@@ -1,8 +1,7 @@
-import { Box } from "@mui/system";
-
 import AdvancedSearch from "components/AdvancedSearch";
 import MoviesListSimple from "components/MoviesListSimple";
 
+import Box from "override/mui/Box";
 import Error from "ui/Error";
 
 import MovieOverlay from "overlays/MovieOverlay";
@@ -21,7 +20,7 @@ const MoviesContainer = () => {
 
   return (
     <MovieOverlay>
-      <Box pb={4} component="div">
+      <Box pb={4}>
         <AdvancedSearch movies={movies} />
       </Box>
 

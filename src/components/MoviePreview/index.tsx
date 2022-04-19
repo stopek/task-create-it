@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
-import { Box, Divider, Grid, Hidden, Typography } from "@mui/material";
+import { Divider, Grid, Hidden, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import CardMedia from "@mui/material/CardMedia";
 import Dialog from "@mui/material/Dialog";
@@ -14,6 +14,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import { styled as style } from "@mui/material/styles";
 
+import Box from "override/mui/Box";
 import FavouriteIcon from "ui/FavouriteIcon";
 import VideoPlayer from "ui/VideoPlayer";
 
@@ -157,9 +158,9 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
 
       <Container>
         <TopContainer>
-          <Box display="flex" gap={2} alignItems="center" component="div">
+          <Box display="flex" gap={2} alignItems="center">
             <Hidden mdDown>
-              <Box component="div">
+              <Box>
                 <ClearLink to={paths.MOVIES}>
                   <IconButton
                     size="large"
@@ -173,7 +174,7 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
               </Box>
             </Hidden>
 
-            <Box component="div">
+            <Box>
               <Typography variant="h4">
                 {movie.title.label}
                 <Category>
@@ -184,7 +185,7 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
               </Typography>
             </Box>
 
-            <Box component="div">
+            <Box>
               <FavouriteIcon id={movie.id.attributes["im:id"]} />
             </Box>
           </Box>
@@ -221,7 +222,7 @@ const MoviePreview = ({ movie }: IMoviePreview) => {
             </Grid>
 
             <Grid item md={9} sm={6} xs={12}>
-              <Box display="flex" rowGap={2} flexDirection="column" component="div">
+              <Box display="flex" rowGap={2} flexDirection="column">
                 <Typography variant="subtitle2">
                   {movie.summary.label}
                 </Typography>

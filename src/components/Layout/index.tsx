@@ -2,8 +2,8 @@ import { ReactNode, useEffect, useState } from "react";
 
 import { CircularProgress, Container } from "@mui/material";
 import { css, keyframes, styled } from "@mui/material/styles";
-import { Box } from "@mui/system";
 
+import Box from "override/mui/Box";
 import Error from "ui/Error";
 
 import { ILoadingState } from "store/reducers/types";
@@ -77,7 +77,7 @@ const Layout = ({ children, center, header, footer, state }: ILayout) => {
   }, [isLoading]);
 
   return (state?.error || state?.crash) ? (
-    <Content center={true} component="div">
+    <Content center={true}>
       <Error />
     </Content>
   ) : (
